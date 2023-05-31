@@ -1,0 +1,25 @@
+- alias: "Sunset Greenhouse lights on"
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: 0
+  condition: []
+  action:
+    service: python_script.set_unit_state
+    data:
+      name: group.gh_plant_light_group
+      state: "on"
+      time_seconds: 0
+
+- alias: "Sunrise Greenhouse lights off"
+  trigger:
+    - platform: sun
+      event: sunrise
+      offset: 0
+  condition: []
+  action:
+    service: python_script.set_unit_state
+    data:
+      name: group.gh_plant_light_group
+      state: "off"
+      time_seconds: 0

@@ -1,0 +1,34 @@
+# Loads default set of integrations. Do not remove.
+default_config:
+
+logger:
+  default: warning
+  logs:
+    # log level for HA core
+    #homeassistant.core: fatal
+    # log level for MQTT integration
+    #homeassistant.components.mqtt: info
+    # log level for all python scripts
+    homeassistant.components.python_script: info
+    # individual log level for this python script
+    homeassistant.components.python_script.set_unit_state.py: info
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+python_script:
+
+sensor:
+  - platform: temper
+    name: GH_temp
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+group: !include groups.yaml
