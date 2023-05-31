@@ -9,7 +9,6 @@
     data:
       name: group.gh_plant_light_group
       state: "on"
-      time_seconds: 0
 
 - alias: "Sunrise Greenhouse lights off"
   trigger:
@@ -22,4 +21,4 @@
     data:
       name: group.gh_plant_light_group
       state: "off"
-      time_seconds: 0
+
