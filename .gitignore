@@ -1,1 +1,8 @@
-secrets
+/.cloud/
+/.storage/
+/blueprints/
+/deps/
+/tts/
+.HA_VERSION
+home-assistant*
+secrets.yaml
