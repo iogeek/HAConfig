@@ -5,10 +5,12 @@
       offset: 0
   condition: []
   action:
-    service: python_script.set_unit_state
-    data:
-      name: group.gh_plant_light_group
-      state: "on"
+    - service: homeassistant.turn_on
+      entity_id: group.gh_plant_light_group
+#    service: python_script.set_unit_state
+#    data:
+#      name: group.gh_plant_light_group
+#      state: "on"
 
 - alias: "Sunrise Greenhouse lights off"
   trigger:
@@ -17,8 +19,11 @@
       offset: 0
   condition: []
   action:
-    service: python_script.set_unit_state
-    data:
-      name: group.gh_plant_light_group
-      state: "off"
+    - service: homeassistant.turn_off
+      entity_id: group.gh_plant_light_group
+#    service: python_script.set_unit_state
+#    data:
+#      name: group.gh_plant_light_group
+#      state: "off"
+
 

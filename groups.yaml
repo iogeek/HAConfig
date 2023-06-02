@@ -51,3 +51,15 @@ gh_heat_mat_group:
     - switch.sw5p3 #s3
     # sw 6
     - switch.sw6p1 #s1
+
+irr_power_group:
+  name: "Irrigation power switches"
+  entities:
+    - switch.osw1b
+    - switch.out2 #
+    - switch.out3 #
+
+hydro_power_group:
+  name: "Hydroponic power switches"
+  entities:
+    - switch.osw1a
