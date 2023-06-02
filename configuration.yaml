@@ -19,6 +19,10 @@ frontend:
 
 python_script:
 
+input_button:
+  irr_z1_btn:
+    name: "Zone 1 Irrigation"
+
 sensor:
   - platform: temper
     name: GH_temp
@@ -27,8 +31,7 @@ sensor:
 tts:
   - platform: google_translate
 
-automation: !include automations.yaml
+automation: !include_dir_merge_list automations/
 script: !include scripts.yaml
 scene: !include scenes.yaml
-
 group: !include groups.yaml
