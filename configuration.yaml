@@ -25,6 +25,16 @@ input_button:
   irr_z2_btn:
     name: "Zone 2 Irrigation"
 
+# Example configuration.yaml entry
+input_number:
+  box1:
+    name: "Z1 Flower Walkway"
+    initial: 1
+    min: 0
+    max: 1800
+    step: 1
+    mode: box
+
 sensor:
   - platform: temper
     name: GH_temp

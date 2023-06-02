@@ -26,4 +26,16 @@
 #      name: group.gh_plant_light_group
 #      state: "off"
 
-
+# - alias: example
+#   trigger:
+#     - id: 'on'
+#       platform: time
+#       at: '18:00:00'
+#     - id: 'off'
+#       platform: time
+#       at: '22:00:00'
+#   condition: []
+#   action:
+#     - service: 'light.turn_{{ trigger.id }}'
+#       target:
+#         entity_id: light.whatever

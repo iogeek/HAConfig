@@ -1,17 +1,18 @@
-trigger:
-  - platform: state
-    entity_id: button.irr_z1_btn
-action:
-  - service: python_script.set
-    data:
-      message: "My button has been pressed!"
+- alias: "Irrigation Button Zone  1"
+  trigger:
+    - platform: state
+      entity_id: button.irr_z1_btn
+  action:
+    - service: python_script.set_unit_state
+      data:
+        message: "My button has been pressed!"
+# trigger:
+#   - platform: state
+#     entity_id: button.irr_z2_btn
+# action:
+#   - service: notify.frenck
+#     data:
+#       message: "My button has been pressed!"
 
-trigger:
-  - platform: state
-    entity_id: button.irr_z2_btn
-action:
-  - service: notify.frenck
-    data:
-      message: "My button has been pressed!"
-
-
+# script delay -> https://community.home-assistant.io/t/automations-with-timer-or-delay/427521/9
+# timer template -> https://community.home-assistant.io/t/template-in-timer/284346/3
