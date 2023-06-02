@@ -1,7 +1,17 @@
 trigger:
   - platform: state
-    entity_id: button.my_button
+    entity_id: button.irr_z1_btn
+action:
+  - service: python_script.set
+    data:
+      message: "My button has been pressed!"
+
+trigger:
+  - platform: state
+    entity_id: button.irr_z2_btn
 action:
   - service: notify.frenck
     data:
       message: "My button has been pressed!"
+
+
