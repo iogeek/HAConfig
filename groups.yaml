@@ -63,3 +63,4 @@ hydro_power_group:
   name: "Hydroponic power switches"
   entities:
     - switch.osw1a
+#  dynamic groups services group.add and group.remove

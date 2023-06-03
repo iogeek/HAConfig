@@ -26,14 +26,8 @@ input_button:
     name: "Zone 2 Irrigation"
 
 # Example configuration.yaml entry
-input_number:
-  box1:
-    name: "Z1 Flower Walkway"
-    initial: 1
-    min: 0
-    max: 1800
-    step: 1
-    mode: box
+input_number: !include_dir_merge_list configurations/input_number/
+input_boolean: !include_dir_merge_list configurations/input_boolean/
 
 sensor:
   - platform: temper
