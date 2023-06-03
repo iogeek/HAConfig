@@ -5,7 +5,48 @@
   action:
     - service: python_script.set_unit_state
       data:
-        message: "My button has been pressed!"
+        message: "z1_flower_path:on"
+    - delay: 00:{{ states.input_number.input_number.time_z1_flower_path.state | int }}:00  # HH:MM:SS  #time_z1_flower_path
+    - service: python_script.set_unit_state
+      data:
+        message: "z1_flower_path:off,z1_berry_path:on"
+    - delay: 00:{{ states.input_number.input_number.time_z1_berry_path.state | int }}:00  # HH:MM:SS
+#  - entity: input_number.time_z1_flower_path
+#  - entity: input_number.time_z1_berry_path
+#  - entity: input_number.time_z1_grid_drip
+#  - entity: input_number.time_z1_grid1
+#  - entity: input_number.time_z1_grid2
+#  - entity: input_number.time_z1_grid3
+#  - entity: input_number.time_z1_grid4
+#  - entity: input_number.time_z1_grid5
+#  - entity: input_number.time_z1_grid6
+#  - entity: input_number.time_z1_grid7
+#  - entity: input_number.time_z1_grid8
+#  - entity: input_number.time_z1_grid9
+#  - entity: input_number.time_z1_grid10
+#  - entity: input_number.time_z1_bed1
+#  - entity: input_number.time_z1_bed2
+#  - entity: input_number.time_z1_bed3
+#  - entity: input_number.time_z1_grape_wall
+
+#       duration: 00:{{ states.input_number.security_lights_minutes.state | int }}:{{
+#         states.input_number.security_lights_seconds.state | int }}
+
+
+# - delay: '00:01:30'  # HH:MM:SS
+# - delay: 00:{{ states.input_number.input_number.time_z1_flower_path.state | int }}:00  # HH:MM:SS
+# trigger:
+#   platform: time
+#   minutes: '/5'
+#   seconds: 00
+# action:
+#   - service: switch.turn_on
+#     entity_id: switch.my_switch
+#   - delay:
+#       minutes: 10
+#   - service: switch.turn_off
+#     entity_id: switch.my_switch
+
 # trigger:
 #   - platform: state
 #     entity_id: button.irr_z2_btn
