@@ -1,3 +1,6 @@
+homeassistant:
+  packages: !include_dir_named packages
+
 # Loads default set of integrations. Do not remove.
 default_config:
 
@@ -5,7 +8,7 @@ logger:
   default: warning
   logs:
     # log level for HA core
-    #homeassistant.core: fatal
+    homeassistant.core: fatal
     # log level for MQTT integration
     #homeassistant.components.mqtt: info
     # log level for all python scripts
@@ -26,8 +29,8 @@ input_button:
     name: "Zone 2 Irrigation"
 
 # Example configuration.yaml entry
-input_number: !include_dir_merge_list configurations/input_number/
-input_boolean: !include_dir_merge_list configurations/input_boolean/
+#input_number: !include_dir_merge_list configs/input_num/
+#input_boolean: !include_dir_merge_list configs/input_bool/
 
 sensor:
   - platform: temper

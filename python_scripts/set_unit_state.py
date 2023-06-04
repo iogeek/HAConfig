@@ -1,6 +1,6 @@
 
 msg = data.get("message")
-
+logger.info("set_unit_state msg[%s]",msg)
 thisdict = {
   "brand": "Ford",
   "model": "Mustang",
@@ -20,7 +20,7 @@ sixChannelMask = {
 }
 
 
-logger.info("set_unit_state state[%s] name[%s]",msg)
+
 #if state == "off":
 #    hass.services.call('homeassistant', 'turn_off', {'entity_id': name})
 #    logger.info("set_unit_state turned off")
