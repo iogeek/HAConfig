@@ -1,0 +1,5 @@
+input_button:
+  irr_z1_btn:
+    name: "Zone 1 Irrigation"
+  irr_z2_btn:
+    name: "Zone 2 Irrigation"

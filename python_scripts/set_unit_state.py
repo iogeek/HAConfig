@@ -1,5 +1,7 @@
 
 msg = data.get("message")
+if not msg:
+    logger.info("set_unit_state msg not passed in ")
 logger.info("set_unit_state msg[%s]",msg)
 thisdict = {
   "brand": "Ford",

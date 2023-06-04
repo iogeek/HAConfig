@@ -1,0 +1,8 @@
+- alias: "Irrigation Button Zone  2"
+  trigger:
+    - platform: state
+      entity_id: input_button.irr_z2_btn
+  action:
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_tulip_tree:on"
