@@ -1,118 +1,104 @@
 input_number:
   time_z2_tulip_tree:
-    name: "Z2 Tulip Tree"
+    name: "Tulip Tree"
     initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_rosemary:
-    name: "Z2 Rosemary"
+    name: "Rosemary"
     initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_bay_bush:
-    name: "Z2 Bay Bush"
+    name: "Bay Bush"
     initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_grape:
-    name: "Z2 Grape"
+    name: "Grape"
     initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_big_pear:
-    name: "Z2 Big Pear"
+    name: "Big Pear"
     initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z1_little_pear:
-    name: "Z2 Little Pear"
+    name: "Little Pear"
     initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_cherry:
-    name: "Z2 Cherry"
+    name: "Cherry"
     initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_apple:
-    name: "Z2 Apple"
+    name: "Apple"
     initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_tub1:
-    name: "Z2 Tub"
+    name: "Tomato Tub"
     initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
-  time_z1_grid7:
-    name: "Z1 Grid 7"
+  time_z2_tub2:
+    name: "Parsley"
     initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
-  time_z1_grid8:
-    name: "Z1 Grid 8"
+  time_z2_tub3:
+    name: "Garlic"
     initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
-  time_z1_grid9:
-    name: "Z1 Grid 9"
+  time_z2_tub4:
+    name: "Leek"
     initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
-  time_z1_grid10:
-    name: "Z1 Grid 10"
+  time_z2_tub5:
+    name: "Sage"
     initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
-  time_z1_bed1:
-    name: "Z1 Bed 1"
+  time_z2_tub6:
+    name: "Mint"
     initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
-  time_z1_bed2:
-    name: "Z1 Bed 2"
-    initial: 1
-    min: 0
-    max: 1800
-    step: 1
-    mode: box
-  time_z1_bed3:
-    name: "Z1 Bed 3"
-    initial: 1
-    min: 0
-    max: 1800
-    step: 1
-    mode: box
-  time_z1_grape_wall:
-    name: "Z1 Grape Wall"
+  time_z2_tub7:
+    name: "onion"
     initial: 1
     min: 0
     max: 1800
@@ -122,22 +108,20 @@ input_number:
 
 # type: entities
 # entities:
-#   - entity: input_number.time_z1_flower_path
-#   - entity: input_number.time_z1_berry_path
-#   - entity: input_number.time_z1_grid_drip
-#   - entity: input_number.time_z1_grid1
-#   - entity: input_number.time_z1_grid2
-#   - entity: input_number.time_z1_grid3
-#   - entity: input_number.time_z1_grid4
-#   - entity: input_number.time_z1_grid5
-#   - entity: input_number.time_z1_grid6
-#   - entity: input_number.time_z1_grid7
-#   - entity: input_number.time_z1_grid8
-#   - entity: input_number.time_z1_grid9
-#   - entity: input_number.time_z1_grid10
-#   - entity: input_number.time_z1_bed1
-#   - entity: input_number.time_z1_bed2
-#   - entity: input_number.time_z1_bed3
-#   - entity: input_number.time_z1_grape_wall
+#   - entity: input_number.time_z2_tulip_tree
+#   - entity: input_number.time_z2_rosemary
+#   - entity: input_number.time_z2_bay_bush
+#   - entity: input_number.time_z2_grape
+#   - entity: input_number.time_z2_big_pear
+#   - entity: input_number.time_z1_little_pear
+#   - entity: input_number.time_z2_cherry
+#   - entity: input_number.time_z2_apple
+#   - entity: input_number.time_z2_tub1
+#   - entity: input_number.time_z2_tub2
+#   - entity: input_number.time_z2_tub3
+#   - entity: input_number.time_z2_tub4
+#   - entity: input_number.time_z2_tub5
+#   - entity: input_number.time_z2_tub6
+#   - entity: input_number.time_z2_tub7
 # show_header_toggle: false
-# title: Zone 1 Times
+# title: Zone 2 Times
