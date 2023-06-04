@@ -119,23 +119,28 @@ input_number:
     step: 1
     mode: box
 
-#  - entity: input_number.time_z1_flower_path
-#  - entity: input_number.time_z1_berry_path
-#  - entity: input_number.time_z1_grid_drip
-#  - entity: input_number.time_z1_grid1
-#  - entity: input_number.time_z1_grid2
-#  - entity: input_number.time_z1_grid3
-#  - entity: input_number.time_z1_grid4
-#  - entity: input_number.time_z1_grid5
-#  - entity: input_number.time_z1_grid6
-#  - entity: input_number.time_z1_grid7
-#  - entity: input_number.time_z1_grid8
-#  - entity: input_number.time_z1_grid9
-#  - entity: input_number.time_z1_grid10
-#  - entity: input_number.time_z1_bed1
-#  - entity: input_number.time_z1_bed2
-#  - entity: input_number.time_z1_bed3
-#  - entity: input_number.time_z1_grape_wall
+# type: entities
+# entities:
+#   - entity: input_number.time_z1_flower_path
+#   - entity: input_number.time_z1_berry_path
+#   - entity: input_number.time_z1_grid_drip
+#   - entity: input_number.time_z1_grid1
+#   - entity: input_number.time_z1_grid2
+#   - entity: input_number.time_z1_grid3
+#   - entity: input_number.time_z1_grid4
+#   - entity: input_number.time_z1_grid5
+#   - entity: input_number.time_z1_grid6
+#   - entity: input_number.time_z1_grid7
+#   - entity: input_number.time_z1_grid8
+#   - entity: input_number.time_z1_grid9
+#   - entity: input_number.time_z1_grid10
+#   - entity: input_number.time_z1_bed1
+#   - entity: input_number.time_z1_bed2
+#   - entity: input_number.time_z1_bed3
+#   - entity: input_number.time_z1_grape_wall
+# show_header_toggle: false
+# title: Zone 1 Times
+
 
 
 # input_number docs -> https://www.home-assistant.io/integrations/input_number/
