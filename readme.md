@@ -7,3 +7,10 @@ Addons
 - HACS
     - cd /config
     - wget -O - https://get.hacs.xyz | bash -
+
+
+
+Python Script resources
+### python scripts
+- https://community.home-assistant.io/c/projects/scripts/26
+- https://www.home-assistant.io/integrations/python_script/

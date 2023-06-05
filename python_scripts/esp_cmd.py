@@ -4,10 +4,42 @@ if not msg:
     logger.info("esp-cmd msg not passed in ")
 logger.info("esp-cmd unit_state msg[%s]",msg)
 
-thisdict = {
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
+haUnits = {
+    "z1_main": "z1_main",
+    "z1_flower_path": "z1_main",
+    "z1_berry_path": "z1_main",
+    "z1_grid_drip": "z1_main",
+    "z1_grid1": "z1_grid12.sw1",
+    "z1_grid2":
+    "z1_grid3":
+    "z1_grid4":
+    "z1_grid5":
+    "z1_grid6":
+    "z1_grid7":
+    "z1_grid8":
+    "z1_grid9":
+    "z1_grid10":
+    "z1_bed1":
+    "z1_bed2":
+    "z1_bed3":
+    "z1_grape_wall":
+    #
+    "z2_main"
+    "z2_tulip_tree"
+    "z2_rosemary"
+    "z2_bay_bush"
+    "z2_grape"
+    "z2_big_pear"
+    "z1_little_pear"
+    "z2_cherry"
+    "z2_apple"
+    "z2_tub1"
+    "z2_tub2"
+    "z2_tub3"
+    "z2_tub4"
+    "z2_tub5"
+    "z2_tub6"
+    "z2_tub7"
 }
 
 sixChannelArray = ["Ford", "Volvo", "BMW"]

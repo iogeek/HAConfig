@@ -13,7 +13,68 @@
     - delay: 00:{{ states.input_number.time_z1_berry_path.state | int }}:00  # HH:MM:SS
     - service: python_script.esp_cmd
       data:
-        message: "z1_berry_path:off"    
+        message: "z1_berry_path:off,z1_grid_drip:on"
+    - delay: 00:{{ states.input_number.time_z1_grid_drip.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z1_grid_drip:off,z1_grid1:on"
+    - delay: 00:{{ states.input_number.time_z1_grid1.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z1_grid1:off,z1_grid2:on"
+    - delay: 00:{{ states.input_number.time_z1_grid2.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z1_grid2:off,z1_grid3:on"
+    - delay: 00:{{ states.input_number.time_z1_grid3.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z1_grid3:off,z1_grid4:on"
+    - delay: 00:{{ states.input_number.time_z1_grid4.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z1_grid4:off,z1_grid5:on"
+    - delay: 00:{{ states.input_number.time_z1_grid5.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z1_grid5:off,z1_grid6:on"
+    - delay: 00:{{ states.input_number.time_z1_grid6.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z1_grid6:off,z1_grid7:on"
+    - delay: 00:{{ states.input_number.time_z1_grid7.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z1_grid7:off,z1_grid8:on"
+    - delay: 00:{{ states.input_number.time_z1_grid8.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z1_grid8:off,z1_grid9:on"
+    - delay: 00:{{ states.input_number.time_z1_grid9.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z1_grid9:off,z1_grid10:on"
+    - delay: 00:{{ states.input_number.time_z1_grid10.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z1_grid10:off,z1_bed1:on"
+    - delay: 00:{{ states.input_number.time_z1_bed1.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z1_bed1:off,z1_bed2:on"
+    - delay: 00:{{ states.input_number.time_z1_bed2.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z1_bed2:off,z1_bed3:on"
+    - delay: 00:{{ states.input_number.time_z1_bed3.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z1_bed3:off,z1_grape_wall:on"
+    - delay: 00:{{ states.input_number.time_z1_grape_wall.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z1_grape_wall:off"
+
 
 #     - delay: "00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}"
 

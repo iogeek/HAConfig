@@ -1,0 +1,11 @@
+switch:
+  - platform: gpio
+    pin:
+      number: D1   #D1
+      mode:
+        output: true
+        #pulldown: true
+    name: "SW1" 
+    id: SW1
+
+    
