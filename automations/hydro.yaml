@@ -1,0 +1,16 @@
+alias: "Hydroponic Cycle"
+trigger:
+  - platform: state
+    entity_id: switch.sengled_e1c_nb7_e08a6b03_on_off
+    for: '1:00:00'
+    to: 'off'
+condition: []
+action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.sengled_e1c_nb7_e08a6b03_on_off
+  - delay: '00:30:00'
+  - service: switch.turn_off
+    target:
+      entity_id: switch.sengled_e1c_nb7_e08a6b03_on_off
+mode: single

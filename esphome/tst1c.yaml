@@ -1,6 +1,6 @@
 substitutions:
   device_name: "tst1c"
-  device_friendlyname: "test 1 channel"
+  device_friendlyname: "test_1channel"
   device_description: "test device 1 channel fet"
   device_board: d1_mini
 
