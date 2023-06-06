@@ -17,7 +17,7 @@
     - delay: 00:{{ states.input_number.time_z1_grid_drip.state | int }}:00  # HH:MM:SS
     - service: python_script.esp_cmd
       data:
-        message: "z1_grid_drip:off,z1_grid1:on"
+        message: "z1_grid_drip:off,z1_control_grid:on,z1_grid1:on"
     - delay: 00:{{ states.input_number.time_z1_grid1.state | int }}:00  # HH:MM:SS
     - service: python_script.esp_cmd
       data:
@@ -57,7 +57,7 @@
     - delay: 00:{{ states.input_number.time_z1_grid10.state | int }}:00  # HH:MM:SS
     - service: python_script.esp_cmd
       data:
-        message: "z1_grid10:off,z1_bed1:on"
+        message: "z1_grid10:off,z1_control_grid:off,z1_bed1:on"
     - delay: 00:{{ states.input_number.time_z1_bed1.state | int }}:00  # HH:MM:SS
     - service: python_script.esp_cmd
       data:

@@ -4,11 +4,27 @@ if not msg:
     logger.info("esp-cmd msg not passed in ")
 logger.info("esp-cmd unit_state msg[%s]",msg)
 
-haUnits = {
-    "z1_main": "z1_main",
-    "z1_flower_path": "z1_main",
-    "z1_berry_path": "z1_main",
-    "z1_grid_drip": "z1_main",
+haStateDict = {
+    "on": "turn_on",
+    "off": "turn_off"
+}
+
+ha6cUnitDict = {
+    # Z1 units
+    "z1_flower_path": "z1_main:1",
+    "z1_berry_path": "z1_main:2",
+    "z1_grid_drip": "z1_main:3",
+    "z1_control_grid": "z1_main:4",
+    # Z2 units
+    "z2_control_tub": "z2_main:1",
+    "z2_control_yard_orchard": "z2_main:2",
+    "z2_tulip_tree" : "z2_main:3",
+    "z2_front_flowerbed" : "z2_main:4"
+}
+
+
+haUnitDict = {
+    # Z1 units
     "z1_grid1": "z1_grid12_sw1",
     "z1_grid2": "z1_grid12_sw2",
     "z1_grid3": "z1_grid34_sw1",
@@ -19,13 +35,11 @@ haUnits = {
     "z1_grid8": "z1_grid78_sw2",
     "z1_grid9": "z1_grid90_sw1",
     "z1_grid10": "z1_grid90_sw2",
-    "z1_bed1": 
+    "z1_bed1":  "z1_bed1_sw1",
     "z1_bed2":
     "z1_bed3":
     "z1_grape_wall":
-    #
-    "z2_main"
-    "z2_tulip_tree"
+    #z2 units
     "z2_rosemary"
     "z2_bay_bush"
     "z2_grape"
