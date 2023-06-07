@@ -3,5 +3,3 @@ input_button:
     name: "Zone 1 Irrigation"
   irr_z2_btn:
     name: "Zone 2 Irrigation"
-  test_irr:
-    name: "test irrigation"

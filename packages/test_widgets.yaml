@@ -1,0 +1,19 @@
+input_button:
+  test_irr:
+    name: "test irrigation"
+
+input_number:
+  time_test_widget1:
+    name: "Test Wdiget 1"
+    initial: 1
+    min: 0
+    max: 1800
+    step: 1
+    mode: box
+  time_test_widget2:
+    name: "Test Wdiget 2"
+    initial: 1
+    min: 0
+    max: 1800
+    step: 1
+    mode: box

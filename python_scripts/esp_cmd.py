@@ -1,9 +1,9 @@
 #wiggle
 msg = data.get("message")
 if not msg:
-    logger.info("esp-cmd msg not passed in ")
+    logger.error("esp-cmd:start:msg not passed in ")
     quit()
-logger.info("esp-cmd unit_state msg[%s]",msg)
+logger.info("esp-cmd:start:msg[%s]",msg)
 
 haStateDict = {
     "on": "turn_on",
@@ -70,9 +70,32 @@ haUnitDict = {
 deviceStrList = msg.split(",")
 
 for deviceStr in deviceStrList:
+  logger.info("esp-cmd:deviceStr[%s]",deviceStr)
   deviceInfo = deviceStr.split(":")
   device = deviceInfo[0]
   state = haStateDict[deviceInfo[1]]
-  print f
+  if device in haUnitDict:
+    logger.info("esp-cmd:is 1c or 2c unit")
+    print("Yes, 'model' is one of the keys in the thisdict dictionary")
+  elif "model" in thisdict:
+    logger.info("esp-cmd:is 6c unit")
+  else:
+    logger.error("esp-cmd msg not passed in ")
+    quit()
+
+logger.info("esp-cmd:end")
+
 
 # switch.test_1_channel_sw1
+
+# service_data = {'entity_id': 'input_boolean.toggle_flurlicht', 'state': state}
+# hass.services.call("input_boolean", "turn_on", service_data, False)
+
+# service_data = {'topic': 'python/sonoff/cmnd/error', 'payload': '{}'.format(state)}	
+# hass.services.call("mqtt","publish",service_data, False)
+
+# service_data = {"entity_id": entity_id, "rgb_color": rgb_color, "brightness": 255}
+# hass.services.call("light", "turn_on", service_data, False)
+
+#hass.services.call(‘media_player.squeezebox_call_method’, { “entity_id”: “media_player.squeezebox_radio”, “command”: “alarm”, “parameters”: [“update”, “id:582c05af”, “time:24000”] })
+#hass.services.call(‘light’, action, service_data={ ‘entity_id’: ‘light.bathroom’, ‘state’: ‘on’, ‘brightness’: ‘255’, ‘kelvin’: ‘2700’ })
