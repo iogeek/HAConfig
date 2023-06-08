@@ -1,0 +1,26 @@
+switch:
+  - platform: gpio
+    pin:
+      number: D3
+      mode:
+        output: true
+        #pulldown: true
+    name: "bit3" 
+    id: bit3
+  - platform: gpio
+    pin:
+      number: D1
+      mode:
+        output: true
+        #pulldown: true
+    name: "bit2" 
+    id: bit2
+  - platform: gpio
+    pin:
+      number: D2
+      mode:
+        output: true
+        #pulldown: true
+    name: "bit1" 
+    id: bit1
+    

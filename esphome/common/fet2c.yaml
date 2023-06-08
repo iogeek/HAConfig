@@ -1,0 +1,17 @@
+switch:
+  - platform: gpio
+    pin:
+      number: D1   #D1
+      mode:
+        output: true
+        #pulldown: true
+    name: "SW1" 
+    id: SW1
+  - platform: gpio
+    pin:
+      number: D2
+      mode:
+        output: true
+        #pulldown: true
+    name: "SW2" 
+    id: SW2
