@@ -30,7 +30,14 @@ ha6cUnitDict = {
     "z2_control_tub": "z2_main:1",
     "z2_control_yard_orchard": "z2_main:2",
     "z2_tulip_tree" : "z2_main:3",
-    "z2_front_flowerbed" : "z2_main:4"
+    "z2_front_flowerbed" : "z2_main:4",
+        # test units
+    "test6c-1" : "test_6_channel:1",
+    "test6c-2" : "test_6_channel:2",
+    "test6c-3" : "test_6_channel:3",
+    "test6c-4" : "test_6_channel:4",
+    "test6c-5" : "test_6_channel:5",
+    "test6c-6" : "test_6_channel:6"
 }
 
 
@@ -64,7 +71,11 @@ haUnitDict = {
     "z2_tub4" : "z2_tub34_sw2",
     "z2_tub5" : "z2_tub56_sw1",
     "z2_tub6" : "z2_tub56_sw2",
-    "z2_tub7" : "z2_tub7_sw1"
+    "z2_tub7" : "z2_tub7_sw1",
+    # test units
+    "test1c" : "test_1_channel_sw1",
+    "test2c-1" : "test_2_channel_sw1",
+    "test2c-2" : "test_2_channel_sw2"
 }
 
 deviceStrList = msg.split(",")
@@ -75,12 +86,24 @@ for deviceStr in deviceStrList:
   device = deviceInfo[0]
   state = haStateDict[deviceInfo[1]]
   if device in haUnitDict:
-    logger.info("esp-cmd:is 1c or 2c unit")
-    print("Yes, 'model' is one of the keys in the thisdict dictionary")
-  elif "model" in thisdict:
-    logger.info("esp-cmd:is 6c unit")
+    device = "switch." + haUnitDict[device]
+    logger.info("esp-cmd:1c/2c:name[%s]", device)
+    hass.services.call('homeassistant', state, {'entity_id': device})
+  elif "model" in ha6cUnitDict:
+    newSixChannelDeviceStr = ha6cUnitDict[device]
+    newSixChannelDeviceInfo = newSixChannelDeviceStr.split(":")
+    deviceSixChannel = newSixChannelDeviceInfo[0]
+    bitMaskSixChannel = newSixChannelDeviceInfo[1]
+    patternStr = sixChannelMask[bitMaskSixChannel]
+    patternList = patternStr.split(",")
+    for pattern in patternList:
+      aPatternArray = pattern.split(":")
+      device = "switch." + deviceSixChannel + "_" + aPatternArray[0]
+      state = haStateDict[aPatternArray[1]]
+      logger.info("esp-cmd:6c:name[%s]:state[%s]",device, state)
+      hass.services.call('homeassistant', state, {'entity_id': device})
   else:
-    logger.error("esp-cmd msg not passed in ")
+    logger.error("esp-cmd:unit type not known")
     quit()
 
 logger.info("esp-cmd:end")
