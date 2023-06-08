@@ -5,6 +5,6 @@
   action:
     - service: python_script.esp_cmd
       data:
-        message: "z1_flower_path:on"
-    - delay: 00:{{ states.input_number.time_z1_flower_path.state | int }}:00  # HH:MM:SS  #time_z1_flower_path
+        message: "test1c:on"
+    - delay: 00:00:{{ states.input_number.time_z1_flower_path.state | int }}  # HH:MM:SS  #time_z1_flower_path
     - service: python_script.esp_cmd
