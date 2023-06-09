@@ -6,5 +6,15 @@
     - service: python_script.esp_cmd
       data:
         message: "test1c:on"
-    - delay: 00:00:{{ states.input_number.time_z1_flower_path.state | int }}  # HH:MM:SS  #time_z1_flower_path
+    - delay: 00:00:{{ states.input_number.time_test_widget1.state | int }}  # HH:MM:SS  #time_z1_flower_path
     - service: python_script.esp_cmd
+      data:
+        message: "test1c:off,test2c-1:on"
+    - delay: 00:00:{{ states.input_number.time_test_widget2a.state | int }}  # HH:MM:SS  #time_z1_flower_path
+    - service: python_script.esp_cmd
+      data:
+        message: "test2c-1:off,test2c-2:on"
+    - delay: 00:00:{{ states.input_number.time_test_widget2b.state | int }}  # HH:MM:SS  #time_z1_flower_path
+    - service: python_script.esp_cmd
+      data:
+        message: "test2c-2:off"                    
