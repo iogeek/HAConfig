@@ -1,17 +1,74 @@
+input_boolean: 
+  tst_bool1:
+    name: "Bool Widget 1c"
+  tst_bool2:
+    name: "Bool Widget 2c"
+  tst_bool3:
+    name: "Bool Widget 6c"
+
 input_button:
   test_irr:
     name: "test irrigation"
 
 input_number:
   time_test_widget1:
-    name: "Test Wdiget 1"
+    name: "Widget 1"
     initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
-  time_test_widget2:
-    name: "Test Wdiget 2"
+  time_test_widget2a:
+    name: "Widget 2A"
+    initial: 1
+    min: 0
+    max: 1800
+    step: 1
+    mode: box
+  time_test_widget2b:
+    name: "Widget 2B"
+    initial: 1
+    min: 0
+    max: 1800
+    step: 1
+    mode: box
+  time_test_widget3_1:
+    name: "Widget 3 mask1"
+    initial: 1
+    min: 0
+    max: 1800
+    step: 1
+    mode: box
+  time_test_widget3_2:
+    name: "Widget 3 mask2"
+    initial: 1
+    min: 0
+    max: 1800
+    step: 1
+    mode: box
+  time_test_widget3_3:
+    name: "Widget 3 mask3"
+    initial: 1
+    min: 0
+    max: 1800
+    step: 1
+    mode: box
+  time_test_widget3_4:
+    name: "Widget 3 mask4"
+    initial: 1
+    min: 0
+    max: 1800
+    step: 1
+    mode: box
+  time_test_widget3_5:
+    name: "Widget 3 mask5"
+    initial: 1
+    min: 0
+    max: 1800
+    step: 1
+    mode: box
+  time_test_widget3_6:
+    name: "Widget 3 mask6"
     initial: 1
     min: 0
     max: 1800

@@ -32,12 +32,12 @@ ha6cUnitDict = {
     "z2_tulip_tree" : "z2_main:3",
     "z2_front_flowerbed" : "z2_main:4",
         # test units
-    "test6c-1" : "test_6_channel:1",
-    "test6c-2" : "test_6_channel:2",
-    "test6c-3" : "test_6_channel:3",
-    "test6c-4" : "test_6_channel:4",
-    "test6c-5" : "test_6_channel:5",
-    "test6c-6" : "test_6_channel:6"
+    "test6c-1" : "test_6channel:1",
+    "test6c-2" : "test_6channel:2",
+    "test6c-3" : "test_6channel:3",
+    "test6c-4" : "test_6channel:4",
+    "test6c-5" : "test_6channel:5",
+    "test6c-6" : "test_6channel:6"
 }
 
 
@@ -74,8 +74,8 @@ haUnitDict = {
     "z2_tub7" : "z2_tub7_sw1",
     # test units
     "test1c" : "test_1_channel_sw1",
-    "test2c-1" : "test_2_channel_sw1",
-    "test2c-2" : "test_2_channel_sw2"
+    "test2c-1" : "test_2channel_sw1",
+    "test2c-2" : "test_2channel_sw2"
 }
 
 deviceStrList = msg.split(",")
