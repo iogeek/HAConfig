@@ -17,4 +17,29 @@
     - delay: 00:00:{{ states.input_number.time_test_widget2b.state | int }}  # HH:MM:SS  #time_z1_flower_path
     - service: python_script.esp_cmd
       data:
-        message: "test2c-2:off"                    
+        message: "test2c-2:off,test6c-1:on"
+    - delay: 00:00:{{ states.input_number.time_test_widget3_1.state | int }}  # HH:MM:SS  #time_z1_flower_path
+    - service: python_script.esp_cmd
+      data:
+        message: "test6c-1:off,test6c-2:on"    
+    - delay: 00:00:{{ states.input_number.time_test_widget3_2.state | int }}  # HH:MM:SS  #time_z1_flower_path
+    - service: python_script.esp_cmd
+      data:
+        message: "test6c-2:off,test6c-3:on"    
+    - delay: 00:00:{{ states.input_number.time_test_widget3_3.state | int }}  # HH:MM:SS  #time_z1_flower_path
+    - service: python_script.esp_cmd
+      data:
+        message: "test6c-3:off,test6c-4:on"    
+    - delay: 00:00:{{ states.input_number.time_test_widget3_4.state | int }}  # HH:MM:SS  #time_z1_flower_path
+    - service: python_script.esp_cmd
+      data:
+        message: "test6c-4:off,test6c-5:on"    
+    - delay: 00:00:{{ states.input_number.time_test_widget3_5.state | int }}  # HH:MM:SS  #time_z1_flower_path
+    - service: python_script.esp_cmd
+      data:
+        message: "test6c-5:off,test6c-6:on"    
+    - delay: 00:00:{{ states.input_number.time_test_widget3_6.state | int }}  # HH:MM:SS  #time_z1_flower_path
+    - service: python_script.esp_cmd
+      data:
+        message: "test6c-6:off"    
+

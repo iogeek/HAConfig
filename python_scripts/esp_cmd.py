@@ -39,6 +39,7 @@ ha6cUnitDict = {
     "test6c-5" : "test_6channel:5",
     "test6c-6" : "test_6channel:6"
 }
+# switch.test_6channel_bit1
 
 
 haUnitDict = {
@@ -89,11 +90,13 @@ for deviceStr in deviceStrList:
     device = "switch." + haUnitDict[device]
     logger.info("esp-cmd:1c/2c:name[%s]", device)
     hass.services.call('homeassistant', state, {'entity_id': device})
-  elif "model" in ha6cUnitDict:
+  elif device in ha6cUnitDict:
     newSixChannelDeviceStr = ha6cUnitDict[device]
     newSixChannelDeviceInfo = newSixChannelDeviceStr.split(":")
     deviceSixChannel = newSixChannelDeviceInfo[0]
-    bitMaskSixChannel = newSixChannelDeviceInfo[1]
+    bitMaskSixChannel = "0"
+    if state == "turn_on":
+      bitMaskSixChannel = newSixChannelDeviceInfo[1]
     patternStr = sixChannelMask[bitMaskSixChannel]
     patternList = patternStr.split(",")
     for pattern in patternList:
