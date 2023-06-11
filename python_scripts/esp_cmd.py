@@ -95,6 +95,7 @@ for deviceStr in deviceStrList:
     newSixChannelDeviceInfo = newSixChannelDeviceStr.split(":")
     deviceSixChannel = newSixChannelDeviceInfo[0]
     bitMaskSixChannel = "0"
+    # Get a proper bitmask iff a FET is to be enabled
     if state == "turn_on":
       bitMaskSixChannel = newSixChannelDeviceInfo[1]
     patternStr = sixChannelMask[bitMaskSixChannel]
@@ -106,7 +107,7 @@ for deviceStr in deviceStrList:
       logger.info("esp-cmd:6c:name[%s]:state[%s]",device, state)
       hass.services.call('homeassistant', state, {'entity_id': device})
   else:
-    logger.error("esp-cmd:unit type not known")
+    logger.error("esp-cmd:unit[%s] not known from [%s] in msg[%s]", device, deviceStr, msg)]")
     quit()
 
 logger.info("esp-cmd:end")
