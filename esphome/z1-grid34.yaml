@@ -1,0 +1,9 @@
+substitutions:
+  device_name: "z1-grid34"
+  device_friendlyname: "z1-grid34"
+  device_description: "zone 1 grid 3 and 4"
+  device_board: d1_mini
+
+#<<: !include common/board.yaml  
+<<: !include common/board.yaml 
+<<: !include common/fet2c.yaml

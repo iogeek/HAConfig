@@ -41,5 +41,16 @@
     - delay: 00:00:{{ states.input_number.time_test_widget3_6.state | int }}  # HH:MM:SS  #time_z1_flower_path
     - service: python_script.esp_cmd
       data:
-        message: "test6c-6:off"    
+        message: "test6c-6:off"
+
+- alias: "Test 1 shot Btn"
+  trigger:
+    - platform: state
+      entity_id: input_button.test_1shot
+  action:
+    - service: python_script.esp_cmd
+      data:
+        message: "{{ states('input_text.text_1shot_action') }}"
+
+#"{{ states('input_select.scene_bedroom') }}"
 

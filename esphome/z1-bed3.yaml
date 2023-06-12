@@ -1,0 +1,9 @@
+substitutions:
+  device_name: "z1-bed3"
+  device_friendlyname: "z1-bed3"
+  device_description: "zone 1 bed 3"
+  device_board: d1_mini
+
+#<<: !include common/board.yaml  
+<<: !include common/board.yaml 
+<<: !include common/fet1c.yaml 

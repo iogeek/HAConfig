@@ -9,6 +9,13 @@ input_boolean:
 input_button:
   test_irr:
     name: "test irrigation"
+  test_1shot:
+    name: "One shot btn test"
+
+input_text:
+  text_1shot_action:
+    name: "One shot action"
+    initial: "z1_flower_path:off,z1_berry_path:on"
 
 input_number:
   time_test_widget1:
