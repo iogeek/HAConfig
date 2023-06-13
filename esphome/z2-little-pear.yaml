@@ -1,7 +1,7 @@
 substitutions:
-  device_name: "z1-bed1"
-  device_friendlyname: "z1-bed1"
-  device_description: "zone 1 bed 1"
+  device_name: "z2-little-pear"
+  device_friendlyname: "z2-little-pear"
+  device_description: "zone 2 little pear"
   device_board: d1_mini
 
 #<<: !include common/board.yaml  

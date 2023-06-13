@@ -1,0 +1,9 @@
+substitutions:
+  device_name: "z2-tub34"
+  device_friendlyname: "z2-tub34"
+  device_description: "zone 2 tub 3 and 4"
+  device_board: d1_mini
+
+#<<: !include common/board.yaml  
+<<: !include common/board.yaml 
+<<: !include common/fet2c.yaml

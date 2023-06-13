@@ -1,0 +1,9 @@
+substitutions:
+  device_name: "z2-cherry-apple"
+  device_friendlyname: "z2-cherry-apple"
+  device_description: "zone 2 cherry and apple"
+  device_board: d1_mini
+
+#<<: !include common/board.yaml  
+<<: !include common/board.yaml 
+<<: !include common/fet2c.yaml

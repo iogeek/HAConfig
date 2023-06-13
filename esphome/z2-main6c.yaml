@@ -1,0 +1,9 @@
+substitutions:
+  device_name: "z2-main"
+  device_friendlyname: "z2-main"
+  device_description: "zone 2 main 6 channel"
+  device_board: d1_mini
+
+#<<: !include common/board.yaml  
+<<: !include common/board.yaml 
+<<: !include common/fet6c.yaml
