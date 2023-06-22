@@ -10,6 +10,20 @@ haStateDict = {
     "off": "turn_off"
 }
 
+#D3 D1 D2          mask   dec
+# L  L  L   none    000   0
+# L  H  L  Ctrl-1   001   1
+# H  H  L  Ctrl-2   101   5
+# L  L  H  Ctrl-4   010   2
+# H  L  H  Ctrl-5   110   6
+# L  H  H  Ctrl-6   011   3
+# H  H  H  Ctrl-3   111   7
+#
+# // wemos d1 mini
+#// d1=5, d2=4, d3=0,
+#const char kOutputPin[] = {5, 4, 0}; 
+
+
 sixChannelMask = {
   "0": "bit1:off,bit2:off,bit3:off",
   "1": "bit1:on,bit2:off,bit3:off",
@@ -17,7 +31,8 @@ sixChannelMask = {
   "3": "bit1:on,bit2:on,bit3:off",
   "4": "bit1:off,bit2:off,bit3:on",
   "5": "bit1:on,bit2:off,bit3:on",
-  "6": "bit1:off,bit2:on,bit3:on"
+  "6": "bit1:off,bit2:on,bit3:on",
+  "7": "bit1:on,bit2:on,bit3:on"
 }
 
 ha6cUnitDict = {
@@ -27,14 +42,14 @@ ha6cUnitDict = {
     "z1_grid_drip": "z1_main:2",
     "z1_control_grid": "z1_main:6",
     "z1_control_beds": "z1_main:1",
-    "z1_control_4": "z1_main:4",
+    "z1_control_7": "z1_main:7",
     # Z2 units
-    "z2-control-tub": "z2-main:1",
-    "z2-control-yard-orchard": "z2-main:2",
-    "z2-tulip-tree" : "z2-main:3",
-    "z2-front-flowerbed" : "z2-main:4",
-    "z2-control-5" : "z2-main:5",
-    "z2-control-6" : "z2-main:6",
+    "z2-control-tub": "z2_main:2",
+    "z2-control-yard-orchard": "z2_main:1",
+    "z2-tulip-tree" : "z2_main:6",
+    "z2-driveway" : "z2_main:7",
+    "z2-control-5" : "z2_main:5",
+    "z2-control-3" : "z2_main:3",
     # test units
     "test6c-1" : "test_6channel:1",
     "test6c-2" : "test_6channel:2",
@@ -51,32 +66,32 @@ haUnitDict = {
     "z1-grid1": "z1_grid12_sw1",
     "z1-grid2": "z1_grid12_sw2",
     "z1-grid3": "z1_grid34-sw1",
-    "z1-grid4": "z1_grid34-sw2",
-    "z1-grid5": "z1_grid56-sw1",
-    "z1-grid6": "z1_grid56-sw2",
-    "z1-grid7": "z1_grid78-sw1",
-    "z1-grid8": "z1-grid78-sw2",
-    "z1-grid9": "z1-grid90-sw1",
-    "z1-grid10": "z1-grid90-sw2",
+    "z1-grid4": "z1_grid34_sw2",
+    "z1-grid5": "z1_grid56_sw1",
+    "z1-grid6": "z1_grid56_sw2",
+    "z1-grid7": "z1_grid78_sw1",
+    "z1-grid8": "z1-grid78_sw2",
+    "z1-grid9": "z1-grid90_sw1",
+    "z1-grid10": "z1-grid90_sw2",
     "z1-bed1":  "z1-bed1-sw1",
     "z1-bed2": "z1-bed2-sw1",
     "z1-bed3": "z1-bed3-sw1",
     "z1-grape-wall": "z1-grape-wall-sw1",
     #z2 units
-    "z2-rosemary": "z2-rosemary-sw1",
-    "z2-bay-bush": "z2-bay-bush-sw1",
-    "z2-grape": "z2-grape-sw1",
-    "z2-big-pear":  "z2-big-pear-sw1",
-    "z2-little-pear": "z2-little-pear-sw1",
-    "z2-cherry" : "z2-cherry-apple-sw1",
-    "z2-apple" : "z2-cherry-apple-sw2",
-    "z2-tub1" : "z2-tub12-sw1",
-    "z2-tub2" : "z2-tub12-sw2",
-    "z2-tub3" : "z2-tub34-sw1",
-    "z2-tub4" : "z2-tub34-sw2",
-    "z2-tub5" : "z2-tub56-sw1",
-    "z2-tub6" : "z2-tub56-sw2",
-    "z2-tub7" : "z2-tub7-sw1",
+    "z2-rosemary": "z2_rosemary_sw1",
+    "z2-bay-bush": "z2_bay_bush_sw1",
+    "z2-grape": "z2_grape_sw1",
+    "z2-big-pear":  "z2_big_pear_sw1",
+    "z2-little-pear": "z2_little_pear_sw1",
+    "z2-cherry" : "z2_cherry_apple_sw1",
+    "z2-apple" : "z2_cherry_apple_sw2",
+    "z2-tub1" : "z2_tub12_sw1",
+    "z2-tub2" : "z2_tub12_sw2",
+    "z2-tub3" : "z2_tub34_sw1",
+    "z2-tub4" : "z2_tub34_sw2",
+    "z2-tub5" : "z2_tub56_sw1",
+    "z2-tub6" : "z2_tub56_sw2",
+    "z2-tub7" : "z2_tub7_sw1",
     # test units
     "test1c" : "test_1_channel_sw1",
     "test2c-1" : "test_2channel_sw1",
