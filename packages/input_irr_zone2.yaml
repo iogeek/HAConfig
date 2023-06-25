@@ -6,6 +6,13 @@ input_number:
     max: 1800
     step: 1
     mode: box
+  time_z2_driveway:
+    name: "Driveway"
+    initial: 1
+    min: 0
+    max: 1800
+    step: 1
+    mode: box
   time_z2_rosemary:
     name: "Rosemary"
     initial: 1
@@ -34,7 +41,7 @@ input_number:
     max: 1800
     step: 1
     mode: box
-  time_z1_little_pear:
+  time_z2_little_pear:
     name: "Little Pear"
     initial: 1
     min: 0
@@ -113,7 +120,7 @@ input_number:
 #   - entity: input_number.time_z2_bay_bush
 #   - entity: input_number.time_z2_grape
 #   - entity: input_number.time_z2_big_pear
-#   - entity: input_number.time_z1_little_pear
+#   - entity: input_number.time_z2_little_pear
 #   - entity: input_number.time_z2_cherry
 #   - entity: input_number.time_z2_apple
 #   - entity: input_number.time_z2_tub1

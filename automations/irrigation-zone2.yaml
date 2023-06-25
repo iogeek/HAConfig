@@ -6,9 +6,67 @@
     - service: python_script.esp_cmd
       data:
         message: "z2_tulip_tree:on"
-
-
- #           "z2-control-tub": "z2_main:2",
- #   "z2-control-yard-orchard": "z2_main:1",
- #   "z2-tulip-tree" : "z2_main:6",
- #   "z2-driveway" : "z2_main:7",
+    - delay: 00:{{ states.input_number.time_z2_tulip_tree.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_tulip_tree:off,z2_driveway:on"
+    - delay: 00:{{ states.input_number.time_z2_driveway.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_driveway:off,z2_control_yard_orchard:on,z2_rosemary:on"
+    - delay: 00:{{ states.input_number.time_z2_rosemary.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_rosemary:off,z2_bay_bush:on"
+    - delay: 00:{{ states.input_number.time_z2_bay_bush.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_bay_bush:off,z2_grape:on"
+    - delay: 00:{{ states.input_number.time_z2_grape.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_grape:off,z2_big_pear:on"
+    - delay: 00:{{ states.input_number.time_z2_big_pear.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_big_pear:off,z2_little_pear:on"
+    - delay: 00:{{ states.input_number.time_z2_little_pear.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_little_pear:off,z2_cherry:on"
+    - delay: 00:{{ states.input_number.time_z2_cherry.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_cherry:off,z2_apple:on"
+    - delay: 00:{{ states.input_number.time_z2_apple.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_apple:off,z2_control_yard_orchard:off,z2_control_tub:on,z2_tub1:on"
+    - delay: 00:{{ states.input_number.time_z2_tub1.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_tub1:off,z2_tub2:on"
+    - delay: 00:{{ states.input_number.time_z2_tub2.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_tub2:off,z2_tub3:on"
+    - delay: 00:{{ states.input_number.time_z2_tub3.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_tub3:off,z2_tub4:on"
+    - delay: 00:{{ states.input_number.time_z2_tub4.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_tub4:off,z2_tub5:on"
+    - delay: 00:{{ states.input_number.time_z2_tub5.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_tub5:off,z2_tub6:on"
+    - delay: 00:{{ states.input_number.time_z2_tub6.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_tub6:off,z2_tub7:on"
+    - delay: 00:{{ states.input_number.time_z2_tub7.state | int }}:00  # HH:MM:SS
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_tub7:off,z2_control_tub:off"              
