@@ -6,3 +6,9 @@
     - service: python_script.esp_cmd
       data:
         message: "z2_tulip_tree:on"
+
+
+ #           "z2-control-tub": "z2_main:2",
+ #   "z2-control-yard-orchard": "z2_main:1",
+ #   "z2-tulip-tree" : "z2_main:6",
+ #   "z2-driveway" : "z2_main:7",

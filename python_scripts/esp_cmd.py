@@ -108,7 +108,11 @@ for deviceStr in deviceStrList:
   if device in haUnitDict:
     device = "switch." + haUnitDict[device]
     logger.info("esp-cmd:1c/2c:name[%s]", device)
-    hass.services.call('homeassistant', state, {'entity_id': device})
+    entity = hass.states.get(device)
+    if entity is None:
+      logger.error("**Cannot find 1c/2c:name[%s].  Skipping it.", device)
+    else:
+      hass.services.call('homeassistant', state, {'entity_id': device})
   elif device in ha6cUnitDict:
     newSixChannelDeviceStr = ha6cUnitDict[device]
     newSixChannelDeviceInfo = newSixChannelDeviceStr.split(":")
@@ -125,7 +129,11 @@ for deviceStr in deviceStrList:
       device = "switch." + deviceSixChannel + "_" + aPatternArray[0]
       state = haStateDict[aPatternArray[1]]
       logger.info("esp-cmd:6c:name[%s]:state[%s]",device, state)
-      hass.services.call('homeassistant', state, {'entity_id': device})
+      entity = hass.states.get(device)
+      if entity is None:
+        logger.error("**Cannot find 6c:name[%s].  Skipping it.", device)
+      else:
+        hass.services.call('homeassistant', state, {'entity_id': device})
   else:
     logger.error("esp-cmd:unit[%s] not known from [%s] in msg[%s]", device, deviceStr, msg)
     quit()

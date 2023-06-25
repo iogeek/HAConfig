@@ -14,3 +14,28 @@ action:
     target:
       entity_id: switch.sengled_e1c_nb7_e08a6b03_on_off
 mode: single
+
+
+# - alias: The Toggler
+#   description: 'ON for 30 minutes, OFF for 60 minutes'
+#   id: the_toggler
+#   trigger:
+#   - platform: time_pattern
+#     minutes: '/30'
+#   action:
+#   - variables:
+#       sw: 'switch.sengled_e1c_nb7_e08a6b03_on_off'
+#       sw_is_on: "{{ is_state(sw, 'on') }}"
+#       time_on: '{{ now() - states[sw].last_changed >= timedelta(minutes=29) }}'
+#       time_off: '{{ now() - states[sw].last_changed >= timedelta(minutes=59) }}'
+#   - choose:
+#     - conditions: '{{ sw_is_on and time_on }}'
+#       sequence:
+#       - service: switch.turn_off
+#         target:
+#           entity_id: '{{ sw }}'
+#     - conditions: '{{ not sw_is_on and time_off }}'
+#       sequence:
+#       - service: switch.turn_on
+#         target:
+#           entity_id: '{{ sw }}'
