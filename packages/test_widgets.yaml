@@ -16,8 +16,18 @@ input_text:
   text_1shot_action:
     name: "One shot action"
     initial: "z1_flower_path:off,z1_berry_path:on"
+  text_1shot_cleanup:
+    name: "One shot cleanup"
+    initial: "z1_berry_path:off"  
 
 input_number:
+  time_test_1shot:
+    name: "1 shot duration"
+    initial: 1
+    min: 0
+    max: 1800
+    step: 1
+    mode: box
   time_test_widget1:
     name: "Widget 1"
     initial: 1

@@ -1,4 +1,4 @@
-#wiggle
+#
 msg = data.get("message")
 if not msg:
     logger.error("esp-cmd:start:msg not passed in ")
@@ -70,13 +70,13 @@ haUnitDict = {
     "z1_grid5": "z1_grid56_sw1",
     "z1_grid6": "z1_grid56_sw2",
     "z1_grid7": "z1_grid78_sw1",
-    "z1_grid8": "z1-grid78_sw2",
-    "z1_grid9": "z1-grid90_sw1",
-    "z1_grid10": "z1-grid90_sw2",
-    "z1_bed1":  "z1-bed1-sw1",
-    "z1_bed2": "z1-bed2-sw1",
-    "z1_bed3": "z1-bed3-sw1",
-    "z1_grape_wall": "z1-grape-wall-sw1",
+    "z1_grid8": "z1_grid78_sw2",
+    "z1_grid9": "z1_grid90_sw1",
+    "z1_grid10": "z1_grid90_sw2",
+    "z1_bed1":  "z1_bed1_sw2",
+    "z1_bed2": "z1_bed2_sw1",
+    "z1_bed3": "z1_bed3_sw1",
+    "z1_grape_wall": "z1_bed1_sw1",
     #z2 units
     "z2_rosemary": "z2_rosemary_sw1",
     "z2_bay_bush": "z2_bay_bush_sw1",
@@ -101,13 +101,13 @@ haUnitDict = {
 deviceStrList = msg.split(",")
 
 for deviceStr in deviceStrList:
-  logger.info("esp-cmd:deviceStr[%s]",deviceStr)
+  logger.debug("esp-cmd:deviceStr[%s]",deviceStr)
   deviceInfo = deviceStr.split(":")
   device = deviceInfo[0]
   state = haStateDict[deviceInfo[1]]
   if device in haUnitDict:
     device = "switch." + haUnitDict[device]
-    logger.info("esp-cmd:1c/2c:name[%s]", device)
+    logger.debug("esp-cmd:1c/2c:name[%s]", device)
     entity = hass.states.get(device)
     if entity is None:
       logger.error("**Cannot find 1c/2c:name[%s].  Skipping it.", device)
@@ -128,7 +128,7 @@ for deviceStr in deviceStrList:
       #switch.z1_main_bit1
       device = "switch." + deviceSixChannel + "_" + aPatternArray[0]
       state = haStateDict[aPatternArray[1]]
-      logger.info("esp-cmd:6c:name[%s]:state[%s]",device, state)
+      logger.debug("esp-cmd:6c:name[%s]:state[%s]",device, state)
       entity = hass.states.get(device)
       if entity is None:
         logger.error("**Cannot find 6c:name[%s].  Skipping it.", device)
@@ -138,7 +138,7 @@ for deviceStr in deviceStrList:
     logger.error("esp-cmd:unit[%s] not known from [%s] in msg[%s]", device, deviceStr, msg)
     quit()
 
-logger.info("esp-cmd:end")
+logger.debug("esp-cmd:end")
 
 
 # switch.test_1_channel_sw1

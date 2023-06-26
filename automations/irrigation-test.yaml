@@ -51,6 +51,10 @@
     - service: python_script.esp_cmd
       data:
         message: "{{ states('input_text.text_1shot_action') }}"
+    - delay: 00:{{ states.input_number.time_test_1shot.state | int }}:00  # HH:MM:SS  #time_z1_flower_path
+    - service: python_script.esp_cmd
+      data:
+        message: "{{ states('input_text.text_1shot_cleanup') }}"
 
 #"{{ states('input_select.scene_bedroom') }}"
 

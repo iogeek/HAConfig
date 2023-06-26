@@ -1,9 +1,9 @@
 substitutions:
   device_name: "z1-bed1"
   device_friendlyname: "z1-bed1"
-  device_description: "zone 1 bed 1"
+  device_description: "zone 1 bed 1 and berry wall"
   device_board: d1_mini
 
 #<<: !include common/board.yaml  
 <<: !include common/board.yaml 
-<<: !include common/fet1c.yaml 
+<<: !include common/fet2c.yaml 

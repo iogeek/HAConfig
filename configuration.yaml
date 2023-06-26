@@ -7,14 +7,17 @@ default_config:
 logger:
   default: critical
   logs:
+    # logs levels
+    #   critical fatal error warning warn info debug notset
+    #
     # log level for HA core
     homeassistant.core: fatal
     # log level for MQTT integration
     #homeassistant.components.mqtt: info
     # log level for all python scripts
-    homeassistant.components.python_script: info
+    homeassistant.components.python_script: error
     # individual log level for this python script
-    homeassistant.components.python_script.set_unit_state.py: info
+    #homeassistant.components.python_script.set_unit_state.py: info
 
 # Load frontend themes from the themes folder
 frontend:
