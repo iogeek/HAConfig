@@ -1,14 +1,14 @@
 input_number:
   time_z1_flower_path:
     name: "Flower Walkway"
-    initial: 1
+    initial: 10
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z1_berry_path:
     name: "Berry Path"
-    initial: 1
+    initial: 10
     min: 0
     max: 1800
     step: 1
@@ -113,7 +113,7 @@ input_number:
     mode: box
   time_z1_grape_wall:
     name: "Grape Wall"
-    initial: 1
+    initial: 10
     min: 0
     max: 1800
     step: 1

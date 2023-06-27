@@ -1,63 +1,63 @@
 input_number:
   time_z2_tulip_tree:
     name: "Tulip Tree"
-    initial: 1
+    initial: 5
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_driveway:
     name: "Driveway"
-    initial: 1
+    initial: 5
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_rosemary:
     name: "Rosemary"
-    initial: 1
+    initial: 5
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_bay_bush:
     name: "Bay Bush"
-    initial: 1
+    initial: 5
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_grape:
     name: "Grape"
-    initial: 1
+    initial: 10
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_big_pear:
     name: "Big Pear"
-    initial: 1
+    initial: 10
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_little_pear:
     name: "Little Pear"
-    initial: 1
+    initial: 10
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_cherry:
     name: "Cherry"
-    initial: 1
+    initial: 5
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_apple:
     name: "Apple"
-    initial: 1
+    initial: 5
     min: 0
     max: 1800
     step: 1
