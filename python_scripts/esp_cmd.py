@@ -65,7 +65,7 @@ haUnitDict = {
     # Z1 units
     "z1_grid1": "z1_grid12_sw1",
     "z1_grid2": "z1_grid12_sw2",
-    "z1_grid3": "z1_grid34-sw1",
+    "z1_grid3": "z1_grid34_sw1",
     "z1_grid4": "z1_grid34_sw2",
     "z1_grid5": "z1_grid56_sw1",
     "z1_grid6": "z1_grid56_sw2",
