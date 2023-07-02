@@ -4,6 +4,8 @@ switch:
       number: D1   #D1
       mode:
         output: true
+        #open_drain: true
+        #pullup: true
         #pulldown: true
     name: "SW1" 
     id: SW1

@@ -26,23 +26,23 @@ haStateDict = {
 
 sixChannelMask = {
   "0": "bit1:off,bit2:off,bit3:off",
-  "1": "bit1:on,bit2:off,bit3:off",
-  "2": "bit1:off,bit2:on,bit3:off",
-  "3": "bit1:on,bit2:on,bit3:off",
-  "4": "bit1:off,bit2:off,bit3:on",
-  "5": "bit1:on,bit2:off,bit3:on",
-  "6": "bit1:off,bit2:on,bit3:on",
-  "7": "bit1:on,bit2:on,bit3:on"
+  "1": "bit1:on,bit2:off,bit3:off", #ctrl-4
+  "2": "bit1:off,bit2:on,bit3:off", #ctrl-1
+  "3": "bit1:on,bit2:on,bit3:off",  #ctrl-6
+  "4": "bit1:off,bit2:off,bit3:on", #
+  "5": "bit1:on,bit2:off,bit3:on",  #ctrl-5
+  "6": "bit1:off,bit2:on,bit3:on",  #ctrl-2
+  "7": "bit1:on,bit2:on,bit3:on"    #ctrl-3
 }
 
 ha6cUnitDict = {
     # Z1 units
-    "z1_flower_path": "z1_main:3",
+    "z1_flower_path": "z1_main:7",
     "z1_berry_path": "z1_main:5",
     "z1_grid_drip": "z1_main:2",
     "z1_control_grid": "z1_main:6",
     "z1_control_beds": "z1_main:1",
-    "z1_control_7": "z1_main:7",
+    "z1_control_unused": "z1_main:3",
     # Z2 units
     "z2_control_tub": "z2_main:2",
     "z2_control_yard_orchard": "z2_main:1",
@@ -59,7 +59,6 @@ ha6cUnitDict = {
     "test6c-6" : "test_6channel:6"
 }
 # switch.test_6channel_bit1
-
 
 haUnitDict = {
     # Z1 units

@@ -1,112 +1,112 @@
 input_number:
   time_z2_tulip_tree:
     name: "Tulip Tree"
-    initial: 5
+    initial: 8
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_driveway:
     name: "Driveway"
-    initial: 5
+    initial: 8
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_rosemary:
     name: "Rosemary"
-    initial: 5
+    initial: 10
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_bay_bush:
     name: "Bay Bush"
-    initial: 5
+    initial: 10
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_grape:
     name: "Grape"
-    initial: 10
+    initial: 15
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_big_pear:
     name: "Big Pear"
-    initial: 10
+    initial: 15
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_little_pear:
     name: "Little Pear"
-    initial: 10
+    initial: 15
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_cherry:
     name: "Cherry"
-    initial: 5
+    initial: 10
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_apple:
     name: "Apple"
-    initial: 5
+    initial: 10
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_tub1:
     name: "Tomato Tub"
-    initial: 1
+    initial: 2
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_tub2:
     name: "Parsley"
-    initial: 1
+    initial: 2
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_tub3:
     name: "Garlic"
-    initial: 1
+    initial: 2
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_tub4:
     name: "Leek"
-    initial: 1
+    initial: 2
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_tub5:
     name: "Sage"
-    initial: 1
+    initial: 2
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_tub6:
     name: "Mint"
-    initial: 1
+    initial: 2
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_tub7:
     name: "onion"
-    initial: 1
+    initial: 2
     min: 0
     max: 1800
     step: 1

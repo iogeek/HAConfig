@@ -4,7 +4,6 @@ substitutions:
   device_description: "test device 1 channel fet"
   device_board: d1_mini
 
-#<<: !include common/board.yaml  
 <<: !include common/board.yaml 
 <<: !include common/fet1c.yaml 
 
