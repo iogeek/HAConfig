@@ -48,8 +48,8 @@ ha6cUnitDict = {
     "z2_control_yard_orchard": "z2_main:1",
     "z2_tulip_tree" : "z2_main:6",
     "z2_driveway" : "z2_main:7",
-    "z2_control_5" : "z2_main:5",
-    "z2_control_3" : "z2_main:3",
+    "z2_control_unused_1" : "z2_main:5",
+    "z2_control_unused_2" : "z2_main:3",
     # test units
     "test6c-1" : "test_6channel:1",
     "test6c-2" : "test_6channel:2",
