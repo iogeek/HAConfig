@@ -78,14 +78,14 @@ input_number:
     mode: box
   time_z1_grid9:
     name: "Grid 9"
-    initial: 2
+    initial: 4
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z1_grid10:
     name: "Grid 10"
-    initial: 2
+    initial: 4
     min: 0
     max: 1800
     step: 1
