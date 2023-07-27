@@ -1,0 +1,25 @@
+# - alias: "Power on Irrigation system"
+#   trigger:
+#     - platform: time
+#       at: "05:00:00"
+#   condition: []
+#   action:
+#     - service: homeassistant.turn_on
+#       entity_id: group.irr_power_group
+
+# - alias: "Power off Irrigation system"
+#   trigger:
+#     - platform: time
+#       at: "11:00:00"
+#   condition: []
+#   action:
+#     - service: homeassistant.turn_off
+#       entity_id: group.irr_power_group
+
+# - alias: 'Sunset'
+#   trigger:
+#   - event: sunset
+#     offset: '-00:10:00'
+#     platform: sun
+#   condition: []
+#   action:
