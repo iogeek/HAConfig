@@ -1,25 +1,38 @@
-# - alias: "Power on Irrigation system"
-#   trigger:
-#     - platform: time
-#       at: "05:00:00"
-#   condition: []
-#   action:
-#     - service: homeassistant.turn_on
-#       entity_id: group.irr_power_group
+- alias: "Sunrise Barn lights on"
+  trigger:
+    - platform: sun
+      event: sunrise
+      offset: 0
+  condition: []
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.eggbarn_light
 
-# - alias: "Power off Irrigation system"
-#   trigger:
-#     - platform: time
-#       at: "11:00:00"
-#   condition: []
-#   action:
-#     - service: homeassistant.turn_off
-#       entity_id: group.irr_power_group
+- alias: "Morning Barn lights off"
+  trigger:
+    - platform: time
+      at: "10:00:00"  # 10am
+  condition: []
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.eggbarn_light
 
-# - alias: 'Sunset'
-#   trigger:
-#   - event: sunset
-#     offset: '-00:10:00'
-#     platform: sun
-#   condition: []
-#   action:
+- alias: "Sunset Barn lights on"
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-01:00:00'     # 1 hour before sunset
+  condition: []
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.eggbarn_light
+
+- alias: "Night Barn lights off"
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '02:00:00'   # 2 hours after sunset 
+  condition: []
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.eggbarn_light

@@ -1,0 +1,19 @@
+- alias: "Sunset barn yard  lights on"
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-02:00:00'     # 2 hour before sunset
+  condition: []
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.egg_yard_light
+
+- alias: "Night Barn yard  lights off"
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '03:00:00'   # 3 hours after sunset 
+  condition: []
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.egg_yard_light
