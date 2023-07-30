@@ -1,0 +1,23 @@
+- alias: "Sunrise porch lights off"
+  trigger:
+    - platform: sun
+      event: sunrise
+      offset: '-02:00:00'   # 2 hours before sunrise 
+  condition: []
+  action:
+    - delay: '00:{{ (range(1, 45)|random|int) }}:00'    # random delay between 1 and 45 minutes
+    - service: homeassistant.turn_off
+      entity_id: switch.porch
+
+
+
+- alias: "Sunset Port light on"
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-01:00:00'   # 1 hours before sunset 
+  condition: []
+  action:
+    - delay: '00:{{ (range(1, 45)|random|int) }}:00'    # random delay between 1 and 45 minutes
+    - service: homeassistant.turn_on
+      entity_id: switch.porch

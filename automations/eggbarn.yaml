@@ -5,7 +5,7 @@
       offset: 0
   condition: []
   action:
-    - service: homeassistant.turn_off
+    - service: homeassistant.turn_on
       entity_id: switch.eggbarn_light
 
 - alias: "Morning Barn lights off"
@@ -14,7 +14,7 @@
       at: "10:00:00"  # 10am
   condition: []
   action:
-    - service: homeassistant.turn_on
+    - service: homeassistant.turn_off
       entity_id: switch.eggbarn_light
 
 - alias: "Sunset Barn lights on"
