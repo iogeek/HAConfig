@@ -2,7 +2,7 @@
   trigger:
     - platform: sun
       event: sunset
-      offset: '-02:00:00'     # 2 hour before sunset
+      offset: '-01:00:00'     # 1 hour before sunset
   condition: []
   action:
     - service: homeassistant.turn_on
@@ -12,7 +12,7 @@
   trigger:
     - platform: sun
       event: sunset
-      offset: '03:00:00'   # 3 hours after sunset 
+      offset: '01:00:00'   # 1 hours after sunset 
   condition: []
   action:
     - service: homeassistant.turn_off
