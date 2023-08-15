@@ -41,32 +41,32 @@
     - delay: 00:{{ states.input_number.time_z2_apple.state | int }}:00  # HH:MM:SS
     - service: python_script.esp_cmd
       data:
-        message: "z2_apple:off,z2_control_yard_orchard:off,z2_control_tub:on,z2_tub1:on"
-    - delay: 00:{{ states.input_number.time_z2_tub1.state | int }}:00  # HH:MM:SS
+        message: "z2_apple:off,z2_control_yard_orchard:off,z2_control_tub:on"  #,z2_tub1:on
+    - delay: 00:{{ states.input_number.time_z2_tubs.state | int }}:00  # HH:MM:SS  #states.input_number.time_z2_tub1.state
+    # - service: python_script.esp_cmd
+    #   data:
+    #     message: "z2_tub1:off,z2_tub2:on"
+    # - delay: 00:{{ states.input_number.time_z2_tub2.state | int }}:00  # HH:MM:SS
+    # - service: python_script.esp_cmd
+    #   data:
+    #     message: "z2_tub2:off,z2_tub3:on"
+    # - delay: 00:{{ states.input_number.time_z2_tub3.state | int }}:00  # HH:MM:SS
+    # - service: python_script.esp_cmd
+    #   data:
+    #     message: "z2_tub3:off,z2_tub4:on"
+    # - delay: 00:{{ states.input_number.time_z2_tub4.state | int }}:00  # HH:MM:SS
+    # - service: python_script.esp_cmd
+    #   data:
+    #     message: "z2_tub4:off,z2_tub5:on"
+    # - delay: 00:{{ states.input_number.time_z2_tub5.state | int }}:00  # HH:MM:SS
+    # - service: python_script.esp_cmd
+    #   data:
+    #     message: "z2_tub5:off,z2_tub6:on"
+    # - delay: 00:{{ states.input_number.time_z2_tub6.state | int }}:00  # HH:MM:SS
+    # - service: python_script.esp_cmd
+    #   data:
+    #     message: "z2_tub6:off,z2_tub7:on"
+    # - delay: 00:{{ states.input_number.time_z2_tub7.state | int }}:00  # HH:MM:SS
     - service: python_script.esp_cmd
       data:
-        message: "z2_tub1:off,z2_tub2:on"
-    - delay: 00:{{ states.input_number.time_z2_tub2.state | int }}:00  # HH:MM:SS
-    - service: python_script.esp_cmd
-      data:
-        message: "z2_tub2:off,z2_tub3:on"
-    - delay: 00:{{ states.input_number.time_z2_tub3.state | int }}:00  # HH:MM:SS
-    - service: python_script.esp_cmd
-      data:
-        message: "z2_tub3:off,z2_tub4:on"
-    - delay: 00:{{ states.input_number.time_z2_tub4.state | int }}:00  # HH:MM:SS
-    - service: python_script.esp_cmd
-      data:
-        message: "z2_tub4:off,z2_tub5:on"
-    - delay: 00:{{ states.input_number.time_z2_tub5.state | int }}:00  # HH:MM:SS
-    - service: python_script.esp_cmd
-      data:
-        message: "z2_tub5:off,z2_tub6:on"
-    - delay: 00:{{ states.input_number.time_z2_tub6.state | int }}:00  # HH:MM:SS
-    - service: python_script.esp_cmd
-      data:
-        message: "z2_tub6:off,z2_tub7:on"
-    - delay: 00:{{ states.input_number.time_z2_tub7.state | int }}:00  # HH:MM:SS
-    - service: python_script.esp_cmd
-      data:
-        message: "z2_tub7:off,z2_control_tub:off"              
+        message: "z2_control_tub:off"   #  z2_tub7:off,        

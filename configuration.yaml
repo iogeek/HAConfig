@@ -29,6 +29,11 @@ sensor:
   - platform: temper
     name: GH_temp
 
+remember_the_milk:
+  - name: !secret rmilk_name
+    api_key: !secret rmilk_api_key
+    shared_secret: !secret rmilk_shared_secret
+
 # Text to speech
 tts:
   - platform: google_translate

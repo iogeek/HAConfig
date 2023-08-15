@@ -4,5 +4,6 @@
 /deps/
 /tts/
 .HA_VERSION
+.remember_the_milk.conf
 home-assistant*
 secrets.yaml

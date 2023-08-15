@@ -62,55 +62,62 @@ input_number:
     max: 1800
     step: 1
     mode: box
-  time_z2_tub1:
-    name: "Tomato Tub"
-    initial: 2
+  time_z2_tubs:
+    name: "Zone2 Tubs"
+    initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
-  time_z2_tub2:
-    name: "Parsley"
-    initial: 2
-    min: 0
-    max: 1800
-    step: 1
-    mode: box
-  time_z2_tub3:
-    name: "Garlic"
-    initial: 2
-    min: 0
-    max: 1800
-    step: 1
-    mode: box
-  time_z2_tub4:
-    name: "Leek"
-    initial: 2
-    min: 0
-    max: 1800
-    step: 1
-    mode: box
-  time_z2_tub5:
-    name: "Sage"
-    initial: 2
-    min: 0
-    max: 1800
-    step: 1
-    mode: box
-  time_z2_tub6:
-    name: "Mint"
-    initial: 2
-    min: 0
-    max: 1800
-    step: 1
-    mode: box
-  time_z2_tub7:
-    name: "onion"
-    initial: 2
-    min: 0
-    max: 1800
-    step: 1
-    mode: box
+  # time_z2_tub1:
+  #   name: "Tomato Tub"
+  #   initial: 2
+  #   min: 0
+  #   max: 1800
+  #   step: 1
+  #   mode: box
+  # time_z2_tub2:
+  #   name: "Parsley"
+  #   initial: 2
+  #   min: 0
+  #   max: 1800
+  #   step: 1
+  #   mode: box
+  # time_z2_tub3:
+  #   name: "Garlic"
+  #   initial: 2
+  #   min: 0
+  #   max: 1800
+  #   step: 1
+  #   mode: box
+  # time_z2_tub4:
+  #   name: "Leek"
+  #   initial: 2
+  #   min: 0
+  #   max: 1800
+  #   step: 1
+  #   mode: box
+  # time_z2_tub5:
+  #   name: "Sage"
+  #   initial: 2
+  #   min: 0
+  #   max: 1800
+  #   step: 1
+  #   mode: box
+  # time_z2_tub6:
+  #   name: "Mint"
+  #   initial: 2
+  #   min: 0
+  #   max: 1800
+  #   step: 1
+  #   mode: box
+  # time_z2_tub7:
+  #   name: "onion"
+  #   initial: 2
+  #   min: 0
+  #   max: 1800
+  #   step: 1
+  #   mode: box
 
 
 # type: entities
