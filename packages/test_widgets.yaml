@@ -1,4 +1,4 @@
-input_boolean: 
+input_boolean:
   tst_bool1:
     name: "Bool Widget 1c"
   tst_bool2:
@@ -11,6 +11,8 @@ input_button:
     name: "test irrigation"
   test_1shot:
     name: "One shot btn test"
+  test_script_btn:
+    name: "Script btn test"
 
 input_text:
   text_1shot_action:
@@ -18,7 +20,13 @@ input_text:
     initial: "z1_flower_path:off,z1_berry_path:on"
   text_1shot_cleanup:
     name: "One shot cleanup"
-    initial: "z1_berry_path:off"  
+    initial: "z1_berry_path:off"
+  text_script_name:
+    name: "Name of script to call"
+    initial: "on_boot"
+  text_script_message:
+    name: "Message passed to script"
+    initial: "zzz"
 
 input_number:
   time_test_1shot:

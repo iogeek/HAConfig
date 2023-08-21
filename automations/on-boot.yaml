@@ -1,0 +1,9 @@
+alias: On Boot Automations
+trigger:
+  - platform: homeassistant
+    event: start
+action:
+  - delay: "00:00:05"
+  - service: python_script.on_boot
+    data:
+      message: ""

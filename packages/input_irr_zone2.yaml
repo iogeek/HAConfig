@@ -50,21 +50,21 @@ input_number:
     mode: box
   time_z2_cherry:
     name: "Cherry"
-    initial: 10
+    initial: 5
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_apple:
     name: "Apple"
-    initial: 10
+    initial: 5
     min: 0
     max: 1800
     step: 1
     mode: box
   time_z2_tubs:
     name: "Zone2 Tubs"
-    initial: 1
+    initial: 2
     min: 0
     max: 1800
     step: 1

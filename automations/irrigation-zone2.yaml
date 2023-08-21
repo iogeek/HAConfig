@@ -13,27 +13,7 @@
     - delay: 00:{{ states.input_number.time_z2_driveway.state | int }}:00  # HH:MM:SS
     - service: python_script.esp_cmd
       data:
-        message: "z2_driveway:off,z2_control_yard_orchard:on,z2_rosemary:on"
-    - delay: 00:{{ states.input_number.time_z2_rosemary.state | int }}:00  # HH:MM:SS
-    - service: python_script.esp_cmd
-      data:
-        message: "z2_rosemary:off,z2_bay_bush:on"
-    - delay: 00:{{ states.input_number.time_z2_bay_bush.state | int }}:00  # HH:MM:SS
-    - service: python_script.esp_cmd
-      data:
-        message: "z2_bay_bush:off,z2_grape:on"
-    - delay: 00:{{ states.input_number.time_z2_grape.state | int }}:00  # HH:MM:SS
-    - service: python_script.esp_cmd
-      data:
-        message: "z2_grape:off,z2_big_pear:on"
-    - delay: 00:{{ states.input_number.time_z2_big_pear.state | int }}:00  # HH:MM:SS
-    - service: python_script.esp_cmd
-      data:
-        message: "z2_big_pear:off,z2_little_pear:on"
-    - delay: 00:{{ states.input_number.time_z2_little_pear.state | int }}:00  # HH:MM:SS
-    - service: python_script.esp_cmd
-      data:
-        message: "z2_little_pear:off,z2_cherry:on"
+        message: "z2_driveway:off,z2_control_yard_orchard:on,z2_cherry:on"   # ,z2_rosemary:on
     - delay: 00:{{ states.input_number.time_z2_cherry.state | int }}:00  # HH:MM:SS
     - service: python_script.esp_cmd
       data:
@@ -43,6 +23,35 @@
       data:
         message: "z2_apple:off,z2_control_yard_orchard:off,z2_control_tub:on"  #,z2_tub1:on
     - delay: 00:{{ states.input_number.time_z2_tubs.state | int }}:00  # HH:MM:SS  #states.input_number.time_z2_tub1.state
+    - service: python_script.esp_cmd
+      data:
+        message: "z2_control_tub:off"   #  z2_tub7:off,        
+
+
+    #    message: "z2_driveway:off,z2_control_yard_orchard:on,z2_rosemary:on"   # ,z2_rosemary:on
+    # - delay: 00:{{ states.input_number.time_z2_rosemary.state | int }}:00  # HH:MM:SS
+    # - service: python_script.esp_cmd
+    #   data:
+    #     message: "z2_rosemary:off,z2_bay_bush:on"
+    # - delay: 00:{{ states.input_number.time_z2_bay_bush.state | int }}:00  # HH:MM:SS
+    # - service: python_script.esp_cmd
+    #   data:
+    #     message: "z2_bay_bush:off,z2_grape:on"
+    # - delay: 00:{{ states.input_number.time_z2_grape.state | int }}:00  # HH:MM:SS
+    # - service: python_script.esp_cmd
+    #   data:
+    #     message: "z2_grape:off,z2_big_pear:on"
+    # - delay: 00:{{ states.input_number.time_z2_big_pear.state | int }}:00  # HH:MM:SS
+    # - service: python_script.esp_cmd
+    #   data:
+    #     message: "z2_big_pear:off,z2_little_pear:on"
+    # - delay: 00:{{ states.input_number.time_z2_little_pear.state | int }}:00  # HH:MM:SS
+    # - service: python_script.esp_cmd
+    #   data:
+    #     message: "z2_little_pear:off,z2_cherry:on"
+    # - delay: 00:{{ states.input_number.time_z2_cherry.state | int }}:00  # HH:MM:SS
+
+
     # - service: python_script.esp_cmd
     #   data:
     #     message: "z2_tub1:off,z2_tub2:on"
@@ -67,6 +76,3 @@
     #   data:
     #     message: "z2_tub6:off,z2_tub7:on"
     # - delay: 00:{{ states.input_number.time_z2_tub7.state | int }}:00  # HH:MM:SS
-    - service: python_script.esp_cmd
-      data:
-        message: "z2_control_tub:off"   #  z2_tub7:off,        
