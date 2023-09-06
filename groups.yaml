@@ -9,6 +9,26 @@
 #- switch.sw6p3
 #- switch.sw6p5
 
+gh_station_0:
+  name: "GH Station 0"
+  entities:
+    - switch.sw6p4 # light
+    - switch.sw1p1 # heat
+    - input_boolean.gh_station0
+
+gh_station_1:
+  name: "GH Station 1"
+  entities:
+    - switch.sw6p2 # light
+    - switch.sw6p1 # heat
+    - input_boolean.gh_station1
+
+gh_all_stations:
+  name: "GH All Stations"
+  entities:
+    - group.gh_station_0
+    - group.gh_station_1
+
 gh_all_plant_light_group:
   name: "Greenhouse All Lights"
   entities:

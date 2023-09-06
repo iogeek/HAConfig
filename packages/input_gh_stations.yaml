@@ -1,37 +1,28 @@
+# if you removal "initial_ttribute", input_boolean values will survive reboot
+# if record hs not been disabled
+#     initial: off
 input_boolean: 
   gh_station0:
-    name: "Station 0"
-    initial: off
+    name: "Greenhouse Station 0"
   gh_station1:
-    name: "Station 1"
-    initial: off
+    name: "Greenhouse Station 1"
   gh_station2:
-    name: "Station 2"
-    initial: off
+    name: "Greenhouse Station 2"
   gh_station3:
-    name: "Station 3"
-    initial: off
+    name: "Greenhouse Station 3"
   gh_station4:
-    name: "Station 4"
-    initial: off
+    name: "GreenhouseStation 4"
   gh_station5:
-    name: "Station 5"
-    initial: off
+    name: "Greenhouse Station 5"
   gh_station6:
-    name: "Station 6"
-    initial: off
+    name: "Greenhouse Station 6"
   gh_station7:
-    name: "Station 7"
-    initial: off
+    name: "Greenhouse Station 7"
   gh_station8:
-    name: "Station 8"
-    initial: off
+    name: "Greenhouse Station 8"
   gh_station9:
-    name: "Station 9"
-    initial: off
+    name: "Greenhouse Station 9"
   gh_station10:
-    name: "Station 10"
-    initial: off
+    name: "Greenhouse Station 10"
   gh_station11:
-    name: "Station 11"
-    initial: off
+    name: "Greenhouse Station 11"

@@ -3,6 +3,24 @@ homeassistant:
 
 # Loads default set of integrations. Do not remove.
 default_config:
+# Example configuration.yaml entry with exclude
+recorder:
+  purge_keep_days: 5
+  #db_url: sqlite:////home/user/.homeassistant/test
+  include:
+    entities:
+      - input_boolean.gh_station0
+      - input_boolean.gh_station1
+      - input_boolean.gh_station2
+      - input_boolean.gh_station3
+      - input_boolean.gh_station4
+      - input_boolean.gh_station5
+      - input_boolean.gh_station6
+      - input_boolean.gh_station7
+      - input_boolean.gh_station8
+      - input_boolean.gh_station9
+      - input_boolean.gh_station10
+      - input_boolean.gh_station11
 
 logger:
   default: critical

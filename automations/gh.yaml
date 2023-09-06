@@ -39,3 +39,8 @@
 #     - service: 'light.turn_{{ trigger.id }}'
 #       target:
 #         entity_id: light.whatever
+
+# https://community.home-assistant.io/t/iterate-through-a-group/30786/3
+# https://community.home-assistant.io/t/how-to-iterate-through-a-list-of-entities-and-call-service-on-each-entity/383535/7
+
+# https://community.home-assistant.io/t/how-to-do-on-off-group-switch/30120/7
