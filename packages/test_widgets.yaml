@@ -17,84 +17,70 @@ input_button:
 input_text:
   text_1shot_action:
     name: "One shot action"
-    initial: "z1_flower_path:off,z1_berry_path:on"
   text_1shot_cleanup:
     name: "One shot cleanup"
-    initial: "z1_berry_path:off"
   text_script_name:
     name: "Name of script to call"
-    initial: "on_boot"
   text_script_message:
     name: "Message passed to script"
-    initial: "zzz"
 
 input_number:
   time_test_1shot:
     name: "1 shot duration"
-    initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_test_widget1:
     name: "Widget 1"
-    initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_test_widget2a:
     name: "Widget 2A"
-    initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_test_widget2b:
     name: "Widget 2B"
-    initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_test_widget3_1:
     name: "Widget 3 mask1"
-    initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_test_widget3_2:
     name: "Widget 3 mask2"
-    initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_test_widget3_3:
     name: "Widget 3 mask3"
-    initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_test_widget3_4:
     name: "Widget 3 mask4"
-    initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_test_widget3_5:
     name: "Widget 3 mask5"
-    initial: 1
     min: 0
     max: 1800
     step: 1
     mode: box
   time_test_widget3_6:
     name: "Widget 3 mask6"
-    initial: 1
     min: 0
     max: 1800
     step: 1

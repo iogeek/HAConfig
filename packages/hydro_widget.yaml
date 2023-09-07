@@ -5,14 +5,12 @@ input_boolean:
 input_number:
   hydro_time_on:
     name: "on time"
-    initial: 7
     min: 0
     max: 1800
     step: 1
     mode: box
   hydro_time_off:
     name: "off time"
-    initial: 30
     min: 0
     max: 1800
     step: 1

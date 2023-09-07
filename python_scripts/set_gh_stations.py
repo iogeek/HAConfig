@@ -1,5 +1,5 @@
-msg = ""
-logger.info("set_gh_stattions:start:msg[%s]",msg)
+desiredState = data.get("state")
+logger.info("set_gh_stattions:start:desiredState[%s]",desiredState)
 
 #light                                      heat
 #                           sw 1
@@ -28,6 +28,7 @@ logger.info("set_gh_stattions:start:msg[%s]",msg)
 
 dataTable = [
 # toggle switch      light list           heat list
+ #["test",           "test.test",          "test.test"], 
   ["gh_station0",    "switch.sw6p4",       "switch.sw1p1"], 
   ["gh_station1",    "switch.sw6p2",       "switch.sw6p1"], 
   ["gh_station2",    "switch.sw1p2",       "switch.sw1p3"],
@@ -44,22 +45,43 @@ dataTable = [
 
 
 sharedTable = {
-  "gh_station5":    ["gh_station8",   "switch.sw5p1"],
-  "gh_station6":    ["gh_station9",   "switch.sw3p1"],  
-  "gh_station7":    ["gh_station10",  "switch.sw5p2"],
-  "gh_station8":    ["gh_station5",   "switch.sw5p1"],
-  "gh_station9":    ["gh_station6",   "switch.sw3p1"],
-  "gh_station10":   ["gh_station7",   "switch.sw5p2"]
+  "gh_station5":    ["gh_station8:light"],
+  "gh_station6":    ["gh_station9:light"],  
+  "gh_station7":    ["gh_station10:light"],
+  "gh_station8":    ["gh_station5:light"],
+  "gh_station9":    ["gh_station6:light"],
+  "gh_station10":   ["gh_station7:light"],
 }
 
 # All, enabled
 # on/off
-
+newLightState = "off"
+newHeatState = "off"
+doLight = True
+doHeat = True
 for itmList in dataTable:
-  eName = "input_boolean." + itmList[0]
+  itm = itmList[0]
+  lightName = itmList[1]
+  heatName = itmList[2]
+  eName = "input_boolean." + itm
   eId = hass.states.get(eName)
-  state = eId.state
-  logger.info("entitiy[%s] is [%s]", eName, state)
+  if eId is  None:
+    logger.error("**set_gh_stations:Cannot find name[%s].  skipping", eName)
+    continue
+  inUse = eId.state
+  logger.info("entitiy[%s] inUse [%s]", eName, inUse)
+  #if inUse == "on":
+  #  if desiredState == "on":
+  #    newState = "on"
+  # assume desiredState should be off for anything else
+  #logger.info("entitiy[%s] newState [%s]", eName, newState)
+
+
+  #if itm in sharedTable:
+
+
+
+
 
 #logger.error("**Cannot find 1c/2c:name[%s].  Skipping it.", device)
 # state = hass.states.get(entity_id)
