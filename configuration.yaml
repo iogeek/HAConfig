@@ -7,20 +7,20 @@ default_config:
 recorder:
   purge_keep_days: 5
   #db_url: sqlite:////home/user/.homeassistant/test
-  include:
-    entities:
-      - input_boolean.gh_station0
-      - input_boolean.gh_station1
-      - input_boolean.gh_station2
-      - input_boolean.gh_station3
-      - input_boolean.gh_station4
-      - input_boolean.gh_station5
-      - input_boolean.gh_station6
-      - input_boolean.gh_station7
-      - input_boolean.gh_station8
-      - input_boolean.gh_station9
-      - input_boolean.gh_station10
-      - input_boolean.gh_station11
+  # include:
+  #   entities:
+  #     - input_boolean.gh_station0
+  #     - input_boolean.gh_station1
+  #     - input_boolean.gh_station2
+  #     - input_boolean.gh_station3
+  #     - input_boolean.gh_station4
+  #     - input_boolean.gh_station5
+  #     - input_boolean.gh_station6
+  #     - input_boolean.gh_station7
+  #     - input_boolean.gh_station8
+  #     - input_boolean.gh_station9
+  #     - input_boolean.gh_station10
+  #     - input_boolean.gh_station11
 
 logger:
   default: critical
@@ -37,6 +37,7 @@ logger:
     # individual log level for this python script
     homeassistant.components.python_script.on_boot.py: info
     homeassistant.components.python_script.set_gh_stations.py: info
+    homeassistant.components.python_script.test.py: info
 
 # Load frontend themes from the themes folder
 frontend:

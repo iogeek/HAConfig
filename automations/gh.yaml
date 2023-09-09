@@ -21,6 +21,29 @@
   action:
     - service: homeassistant.turn_off
       entity_id: group.gh_plant_light_group
+
+- alias: "Toggle Greenhouse Station"
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.gh_station0
+        - input_boolean.gh_station1
+        - input_boolean.gh_station2
+        - input_boolean.gh_station3
+        - input_boolean.gh_station4
+        - input_boolean.gh_station5
+        - input_boolean.gh_station6
+        - input_boolean.gh_station7
+        - input_boolean.gh_station8
+        - input_boolean.gh_station9
+        - input_boolean.gh_station10
+        - input_boolean.gh_station11
+  action:
+    - service: python_script.test
+      data:
+        stations: '{{trigger.entity_id}}'
+        state: '{{trigger.to_state.state}}'
+
 #    service: python_script.set_unit_state
 #    data:
 #      name: group.gh_plant_light_group

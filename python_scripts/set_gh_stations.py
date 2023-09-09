@@ -1,4 +1,5 @@
-desiredState = data.get("state")
+desiredState = data.get("state")  # on/off
+desiredStations = data.get("stations") # all or station name (ie gh_station1)
 logger.info("set_gh_stattions:start:desiredState[%s]",desiredState)
 
 #light                                      heat
@@ -53,6 +54,19 @@ sharedTable = {
   "gh_station10":   ["gh_station7:light"],
 }
 
+##############################################
+#  Functions
+##############################################
+def setEntityState(station, eId, state, targetStations):
+  logger.info("Hello from a function")
+
+
+##############################################
+#  main
+##############################################
+
+
+
 # All, enabled
 # on/off
 newLightState = "off"
@@ -69,15 +83,23 @@ for itmList in dataTable:
     logger.error("**set_gh_stations:Cannot find name[%s].  skipping", eName)
     continue
   inUse = eId.state
+  #setEntityState()
   logger.info("entitiy[%s] inUse [%s]", eName, inUse)
+
+
   #if inUse == "on":
   #  if desiredState == "on":
   #    newState = "on"
   # assume desiredState should be off for anything else
   #logger.info("entitiy[%s] newState [%s]", eName, newState)
 
+# changing all states
+# if itm is shared, then
+#   if shred_itm inUse then set to new state
+#   else set to new state
 
-  #if itm in sharedTable:
+ # if itm in sharedTable:
+ #   sharedItmList = sharedTable[itm]
 
 
 
