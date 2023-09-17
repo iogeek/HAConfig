@@ -5,5 +5,6 @@
 /tts/
 .HA_VERSION
 .remember_the_milk.conf
+.shopping_list.json
 home-assistant*
 secrets.yaml

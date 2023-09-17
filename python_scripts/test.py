@@ -1,3 +1,4 @@
+# this is just a script where i try stuff
 def my_function():
   logger.info("Hello from a function")
 

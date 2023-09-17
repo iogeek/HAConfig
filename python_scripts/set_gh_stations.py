@@ -1,6 +1,6 @@
 desiredState = data.get("state")  # on/off
 desiredStations = data.get("stations") # all or station name (ie gh_station1)
-logger.info("set_gh_stattions:start:desiredState[%s]",desiredState)
+logger.info("set_gh_stattions:start:desiredStations[%s]:desiredState[%s]",desiredStations, desiredState)
 
 #light                                      heat
 #                           sw 1
@@ -57,9 +57,12 @@ sharedTable = {
 ##############################################
 #  Functions
 ##############################################
-def setEntityState(station, eId, state, targetStations):
-  logger.info("Hello from a function")
-
+def setEntityState(station, eId, state, bIsSingle):
+  logger.info("set_gh_stations:setEntityState")
+  if station in sharedTable:
+    logger.info("set_gh_stations:setEntityState:station[%s] found in sharedTable", station)
+  else:
+    logger.info("set_gh_stations:setEntityState:station[%s] is not shared", station)
 
 ##############################################
 #  main
@@ -73,18 +76,28 @@ newLightState = "off"
 newHeatState = "off"
 doLight = True
 doHeat = True
-for itmList in dataTable:
-  itm = itmList[0]
-  lightName = itmList[1]
-  heatName = itmList[2]
-  eName = "input_boolean." + itm
+if desiredStations == "all":
+  for itmList in dataTable:
+    itm = itmList[0]
+    lightName = itmList[1]
+    heatName = itmList[2]
+    eName = "input_boolean." + itm
+    eId = hass.states.get(eName)
+    if eId is  None:
+      logger.error("**set_gh_stations:Cannot find name[%s].  skipping", eName)
+      continue
+    inUse = eId.state
+    #setEntityState()
+    logger.info("set_gh_stations:entitiy[%s] inUse [%s]", eName, inUse)
+    setEntityState(desiredStations, desiredState, True)
+else:
+  eName = "input_boolean." + desiredStations
   eId = hass.states.get(eName)
   if eId is  None:
     logger.error("**set_gh_stations:Cannot find name[%s].  skipping", eName)
-    continue
   inUse = eId.state
-  #setEntityState()
-  logger.info("entitiy[%s] inUse [%s]", eName, inUse)
+  logger.info("set_gh_stations:calling setEntityState:entitiy[%s] inUse [%s]", eName, inUse)
+  setEntityState(desiredStations, desiredState, False)
 
 
   #if inUse == "on":

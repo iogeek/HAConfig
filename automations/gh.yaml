@@ -39,7 +39,7 @@
         - input_boolean.gh_station10
         - input_boolean.gh_station11
   action:
-    - service: python_script.test
+    - service: python_script.set_gh_stations
       data:
         stations: '{{trigger.entity_id}}'
         state: '{{trigger.to_state.state}}'

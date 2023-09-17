@@ -3,7 +3,7 @@ msg = data.get("message")
 if not msg:
     logger.error("esp-cmd:start:msg not passed in ")
     quit()
-logger.info("esp-cmd:start:msg[%s]",msg)
+logger.debug("esp-cmd:start:msg[%s]",msg)
 
 haStateDict = {
     "on": "turn_on",
@@ -111,6 +111,7 @@ for deviceStr in deviceStrList:
     if entity is None:
       logger.error("**Cannot find 1c/2c:name[%s].  Skipping it.", device)
     else:
+      logger.info("esp-cmd:1c/2c:setting[%s] to[%s]",device,state)
       hass.services.call('homeassistant', state, {'entity_id': device})
   elif device in ha6cUnitDict:
     newSixChannelDeviceStr = ha6cUnitDict[device]
@@ -132,6 +133,7 @@ for deviceStr in deviceStrList:
       if entity is None:
         logger.error("**Cannot find 6c:name[%s].  Skipping it.", device)
       else:
+        logger.info("esp-cmd:6c:setting[%s] to[%s]",device,state)
         hass.services.call('homeassistant', state, {'entity_id': device})
   else:
     logger.error("esp-cmd:unit[%s] not known from [%s] in msg[%s]", device, deviceStr, msg)
