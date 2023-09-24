@@ -3,6 +3,9 @@
     - platform: state
       entity_id: input_button.test_script_btn
   action:
-    - service: python_script.{{ states('input_text.text_script_name') }}
+    - service: python_script.test_helper  # service: python_script.{{ states('input_text.text_script_name') }} 
       data:
-        message: "{{ states('input_text.text_script_message') }}"
+        parm1: "{{ states('input_text.text_script_parm1') }}"
+        parm2: "{{ states('input_text.text_script_parm2') }}"
+        parm3: "{{ states('input_text.text_script_parm3') }}"
+        script: "{{ states('input_text.text_script_name') }}"

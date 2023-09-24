@@ -21,8 +21,12 @@ input_text:
     name: "One shot cleanup"
   text_script_name:
     name: "Name of script to call"
-  text_script_message:
-    name: "Message passed to script"
+  text_script_parm1:
+    name: "Parm 1 passed to script"
+  text_script_parm2:
+    name: "Parm 2 passed to script"
+  text_script_parm3:
+    name: "Parm 3 passed to script"
 
 input_number:
   time_test_1shot:
