@@ -1,6 +1,6 @@
 desiredState = data.get("state")  # on/off
 desiredStations = data.get("stations") # all or station name (ie gh_station1)
-logger.info("set_gh_stattions:start:desiredStations[%s]:desiredState[%s]",desiredStations, desiredState)
+logger.info("set_gh_stations:start:desiredStations[%s]:desiredState[%s]",desiredStations, desiredState)
 
 #light                                      heat
 #                           sw 1
@@ -27,77 +27,144 @@ logger.info("set_gh_stattions:start:desiredStations[%s]:desiredState[%s]",desire
 # #- switch.sw6p4 #s0
 # #- switch.sw6p6 #s3
 
-dataTable = [
-# toggle switch      light list           heat list
- #["test",           "test.test",          "test.test"], 
-  ["gh_station0",    "switch.sw6p4",       "switch.sw1p1"], 
-  ["gh_station1",    "switch.sw6p2",       "switch.sw6p1"], 
-  ["gh_station2",    "switch.sw1p2",       "switch.sw1p3"],
-  ["gh_station3",    "switch.sw6p6",       "switch.sw5p3"],  
-  ["gh_station4",    "switch.sw4p1",       "switch.sw4p2,switch.sw4p3,switch.sw4p4"], #
-  ["gh_station5",    "switch.sw5p1",       "switch.sw3p5"],  
-  ["gh_station6",    "switch.sw3p1",       "switch.sw3p3"],  
-  ["gh_station7",    "switch.sw5p2",       "switch.sw3p4"],
-  ["gh_station8",    "switch.sw5p1",       "switch.sw3p6"],
-  ["gh_station9",    "switch.sw3p1",       "switch.sw4p5"],
-  ["gh_station10",   "switch.sw5p2",       "switch.sw4p6"],
-  ["gh_station11",   "switch.sw2p2",       "switch.sw2p3"]
-]
+lightData = {
+# toggle switch      light list    
+ #["test",           "test.test",  
+  "gh_station0":    "switch.sw6p4",
+  "gh_station1":    "switch.sw6p2",
+  "gh_station2":    "switch.sw1p2",
+  "gh_station3":    "switch.sw6p6",
+  "gh_station4":    "switch.sw4p1",
+  "gh_station5":    "switch.sw5p1",
+  "gh_station6":    "switch.sw3p1",
+  "gh_station7":    "switch.sw5p2",
+  "gh_station8":    "switch.sw5p1",
+  "gh_station9":    "switch.sw3p1",
+  "gh_station10":   "switch.sw5p2",
+  "gh_station11":   "switch.sw2p2",
+}
 
 
-sharedTable = {
-  "gh_station5":    ["gh_station8:light"],
-  "gh_station6":    ["gh_station9:light"],  
-  "gh_station7":    ["gh_station10:light"],
-  "gh_station8":    ["gh_station5:light"],
-  "gh_station9":    ["gh_station6:light"],
-  "gh_station10":   ["gh_station7:light"],
+heatData = {
+# toggle switch      heat list
+ #["test",            "test.test"], 
+  "gh_station0":     "switch.sw1p1", 
+  "gh_station1":     "switch.sw6p1", 
+  "gh_station2":     "switch.sw1p3",
+  "gh_station3":     "switch.sw5p3",  
+  "gh_station4":     "switch.sw4p2,switch.sw4p3,switch.sw4p4", #
+  "gh_station5":     "switch.sw3p5",  
+  "gh_station6":     "switch.sw3p3",  
+  "gh_station7":     "switch.sw3p4",
+  "gh_station8":     "switch.sw3p6",
+  "gh_station9":     "switch.sw4p5",
+  "gh_station10":    "switch.sw4p6",
+  "gh_station11":    "switch.sw2p3"
+}
+
+
+sharedLight = {
+  "gh_station5":    "gh_station8",
+  "gh_station6":    "gh_station9",  
+  "gh_station7":    "gh_station10",
+  "gh_station8":    "gh_station5",
+  "gh_station9":    "gh_station6",
+  "gh_station10":   "gh_station7"
+}
+
+sharedHeat = {
 }
 
 ##############################################
 #  Functions
 ##############################################
-def setEntityState(station, eId, state, bIsSingle):
-  logger.info("set_gh_stations:setEntityState")
-  if station in sharedTable:
+def setStationState(station, state):
+  logger.info("set_gh_stations:setEntityState:station[%s]:state[%s]", station, state)
+  if station in sharedDict:
     logger.info("set_gh_stations:setEntityState:station[%s] found in sharedTable", station)
+    if state == "off":
+      logger.info("set_gh_stations:setEntityState:station[%s] is shared and off", station)
+
   else:
     logger.info("set_gh_stations:setEntityState:station[%s] is not shared", station)
+    hass.services.call('homeassistant', state, {'entity_id': device})
+
+def setStationLight(station, state):
+  if station in sharedLight:
+    logger.info("set_gh_stations:setStation:station[%s] is sharedLight", station)
+
+def setStationHeat(station, state):
+  if station in sharedHeat:
+    logger.info("set_gh_stations:setStationHeat:station[%s] is sharedHeat", station)
+    # if shared station is disabled and we are turning off then proceed
+    # if shared station is disabled and we are turning on then proceed
+    # if shared station is enabled and we changed to shared stations state then proceed
+    # if shared station is enabled and new state differs then do nothing
+  else:
+    stationStr = heatData[station]
+    stationList = stationStr.split(",")
+    for id in stationList:
+      logger.info("set_gh_stations:setStationHeat:id[%s] to [%s]", id, state)
+      hass.services.call('homeassistant', state, {'entity_id': id})
+
+def getStationBias(station, sharedStationTable, stationTypeTable, state):
+  if station in sharedStationTable:
+    logger.info("set_gh_stations:setStationHeat:station[%s] is sharedHeat", station)
+    # if shared station is disabled and we are turning off then proceed
+    # if shared station is disabled and we are turning on then proceed
+    # if shared station is enabled and we changed to shared stations state then proceed
+    # if shared station is enabled and new state differs then do nothing
+  else:
+    return False     # not shared.  So no bias
+  return False       # should never get here.
+
+def setStation(station, state, bUseBias):
+  # set both heat and light
+  logger.info("set_gh_stations:setStation:station[%s]:state[%s]:bias[%s]", station, state, bUseBias)
+  # setStationLight(station, state)
+  # setStationHeat(station, state)
+
+
 
 ##############################################
 #  main
 ##############################################
+if desiredStations == "all":
+else:
+  station = desiredStations.split(".")  # will be in the format of 'input_boolean.gh_station1'
+  setStation(station[1], desiredState, True)
+
 
 
 
 # All, enabled
 # on/off
-newLightState = "off"
-newHeatState = "off"
-doLight = True
-doHeat = True
-if desiredStations == "all":
-  for itmList in dataTable:
-    itm = itmList[0]
-    lightName = itmList[1]
-    heatName = itmList[2]
-    eName = "input_boolean." + itm
-    eId = hass.states.get(eName)
-    if eId is  None:
-      logger.error("**set_gh_stations:Cannot find name[%s].  skipping", eName)
-      continue
-    inUse = eId.state
-    #setEntityState()
-    logger.info("set_gh_stations:entitiy[%s] inUse [%s]", eName, inUse)
-    setEntityState(desiredStations, desiredState, True)
-else:
-  eName = "input_boolean." + desiredStations
-  eId = hass.states.get(eName)
-  if eId is  None:
-    logger.error("**set_gh_stations:Cannot find name[%s].  skipping", eName)
-  inUse = eId.state
-  logger.info("set_gh_stations:calling setEntityState:entitiy[%s] inUse [%s]", eName, inUse)
-  setEntityState(desiredStations, desiredState, False)
+# newLightState = "off"
+# newHeatState = "off"
+# doLight = True
+# doHeat = True
+# if desiredStations == "all":
+#   for itmList in dataTable:
+#     itm = itmList[0]
+#     lightName = itmList[1]
+#     heatName = itmList[2]
+#     eName = "input_boolean." + itm
+#     eId = hass.states.get(eName)
+#     if eId is  None:
+#       logger.error("**set_gh_stations:Cannot find name[%s].  skipping", eName)
+#       continue
+#     inUse = eId.state
+#     #setEntityState()
+#     logger.info("set_gh_stations:entitiy[%s] inUse [%s]", eName, inUse)
+#     setEntityState(desiredStations, desiredState, True)
+# else:
+#   eName = "input_boolean." + desiredStations
+#   eId = hass.states.get(eName)
+#   if eId is  None:
+#     logger.error("**set_gh_stations:Cannot find name[%s].  skipping", eName)
+#   inUse = eId.state
+#   logger.info("set_gh_stations:calling setEntityState:entitiy[%s] inUse [%s]", eName, inUse)
+#   setEntityState(desiredStations, desiredState, False)
 
 
   #if inUse == "on":

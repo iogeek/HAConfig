@@ -31,24 +31,6 @@ else:
  ## cannot use parmJSON += parmJSON
  ## cannot use eval
 
-# parmList = parmStr.split(",")
-# parmJSON = ""
-# for parm in parmList:
-#     logger.info("test_helper:parm[%s]",parm)
-#     aList = parmStr.split(":")
-#     aLen = len(aList)
-#     pLen = len(parmJSON)
-#     logger.info("test_helper:len(,)[%s]:len(:)[%s]",pLen,aLen)
-#     if len(parmJSON) >= 1:
-#         parmJSON += ","
-#     varName = aList[0]
-#     varValue = aList[1]
-#     logger.info("test_helper:varName[%s]:varValue[%s]",varName,varValue)
-#     parmJSON = parmJSON + '\'' + varName + '\':\'' + varValue +'\''  ## cannot use parmJSON += parmJSON
-# parmJSON = "{" + parmJSON + "}"
-# scriptStr = '\'' + script + '\''
-# logger.info("test_helper:scriptStr[%s]:parmJSON[%s]",scriptStr,parmJSON)
-
 #hass.services.call('python_script', script, eval(parmJSON))  ## cannot use eval
 #hass.services.call('python_script', script, {'message': 'foo'})
 #hass.services.call('python_script', 'set_gh_stations', {'message': "name"})
