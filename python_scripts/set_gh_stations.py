@@ -107,7 +107,7 @@ def getStationBias(station, sharedStationTable, stationTypeTable, state):
     sharedStation = sharedStationTable[station]
     sharedStationID = "input_boolean." + sharedStation
     sharedStationEnabledState =  hass.states.get(sharedStationID).state
-    logger.info("set_gh_stations:setStationHeat:sharedtation[%s]:sharedStationState[%s]", sharedStation, sharedStationState)
+    logger.info("set_gh_stations:setStationHeat:sharedtation[%s]:sharedStationState[%s]", sharedStation, sharedStationEnabledState)
     # if shared and primary station are disabled then turn off 
     # if shared station is disabled and we are turning on then proceed  # if disabled then state should not matter
     if sharedStationEnabledState == "off":   # if sharedStation is disabled then we can set any state.
@@ -128,13 +128,17 @@ def setStationState(station, state, sharedTable, table, bForce):
     if getStationBias(station, sharedTable, table, state) == False:
       logger.info("set_gh_stations:setStationState:station[%s].  No bias.  Proceed with setting state [%s]", station, state)
       setState(idStr, state)
+    else:
+      logger.info("set_gh_stations:setStationState:station[%s]. Has bias.  No state change. [%s]", station)
     
 
 
 def setStation(station, state, bForce):
   # set both heat and light
   logger.info("set_gh_stations:setStation:station[%s]:state[%s]:force set[%s]", station, state, bForce)
+  logger.info("set_gh_stations:setStation:-------- light ------")
   setStationState(station, state, sharedLight, lightData, bForce)
+  logger.info("set_gh_stations:setStation:-------- heat ------")
   setStationState(station, state, sharedHeat, heatData, bForce)
 
 
