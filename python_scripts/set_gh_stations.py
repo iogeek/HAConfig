@@ -148,7 +148,10 @@ def setStation(station, state, bForce):
 ##############################################
 if desiredStations == "all":
   for key in lightData:   # assume there was lightData and heatData have same stations
-    setStation(key, desiredState, True)
+    stationToggle = "input_boolean." + key
+    enabledState =  hass.states.get(stationToggle).state
+    if enabledState == "on":
+      setStation(key, desiredState, True)
 else:
   station = desiredStations.split(".")  # will be in the format of 'input_boolean.gh_station1'
   setStation(station[1], desiredState, False)

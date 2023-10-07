@@ -5,12 +5,13 @@
       offset: 0
   condition: []
   action:
-    - service: homeassistant.turn_on
-      entity_id: group.gh_plant_light_group
-#    service: python_script.set_unit_state
-#    data:
-#      name: group.gh_plant_light_group
-#      state: "on"
+      - service: python_script.set_gh_stations
+      data:
+        stations: 'all'
+        state: 'on'
+#    - service: homeassistant.turn_on
+#      entity_id: group.gh_plant_light_group
+
 
 - alias: "Sunrise Greenhouse lights off"
   trigger:
@@ -19,8 +20,12 @@
       offset: 0
   condition: []
   action:
-    - service: homeassistant.turn_off
-      entity_id: group.gh_plant_light_group
+    - service: python_script.set_gh_stations
+      data:
+        stations: 'all'
+        state: 'off'
+#    - service: homeassistant.turn_off
+#      entity_id: group.gh_plant_light_group
 
 - alias: "Toggle Greenhouse Station"
   trigger:
@@ -44,24 +49,6 @@
         stations: '{{trigger.entity_id}}'
         state: '{{trigger.to_state.state}}'
 
-#    service: python_script.set_unit_state
-#    data:
-#      name: group.gh_plant_light_group
-#      state: "off"
-
-# - alias: example
-#   trigger:
-#     - id: 'on'
-#       platform: time
-#       at: '18:00:00'
-#     - id: 'off'
-#       platform: time
-#       at: '22:00:00'
-#   condition: []
-#   action:
-#     - service: 'light.turn_{{ trigger.id }}'
-#       target:
-#         entity_id: light.whatever
 
 # https://community.home-assistant.io/t/iterate-through-a-group/30786/3
 # https://community.home-assistant.io/t/how-to-iterate-through-a-list-of-entities-and-call-service-on-each-entity/383535/7
