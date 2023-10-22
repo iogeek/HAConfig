@@ -5,7 +5,7 @@
       offset: 0
   condition: []
   action:
-      - service: python_script.set_gh_stations
+    - service: python_script.set_gh_stations
       data:
         stations: 'all'
         state: 'on'

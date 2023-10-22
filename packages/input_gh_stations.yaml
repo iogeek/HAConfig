@@ -1,4 +1,4 @@
-# if you removal "initial_ttribute", input_boolean values will survive reboot
+# if you removal "initial attribute", input_boolean values will survive reboot
 # if record hs not been disabled
 #     initial: off
 input_boolean: 

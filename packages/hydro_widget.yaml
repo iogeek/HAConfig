@@ -1,6 +1,6 @@
 input_boolean: 
-  hydro_disable:
-    name: "Disable Hydro"
+  hydro_enable:
+    name: "Hydro enabled"
 
 input_number:
   hydro_time_on:
