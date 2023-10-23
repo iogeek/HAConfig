@@ -5,9 +5,5 @@ input_button:
     name: "Zone 2 Irrigation"
 
 input_boolean: 
-  irr_z1_enable:
-    name: "Zone 1 enabled"
-  irr_z2_enable:
-    name: "Zone 2 enabled"
   irr_enable:
     name: "Irrigation enabled"

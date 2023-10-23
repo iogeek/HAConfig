@@ -1,8 +1,24 @@
+- alias: "Toggle Irrigation State"
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.irr_enable
+  action:
+  - variables:
+      sw: 'group.irr_power_group'
+      en: 'input_boolean.irr_enable'
+      sw_enable: "{{ is_state(en, 'on') }}"
+  - choose:
+    - conditions: '{{ not sw_enable }}'
+      sequence:
+      - service: homeassistant.turn_off
+        entity_id: '{{ sw }}'
+
 - alias: "Power on Irrigation system"
   trigger:
     - platform: time
       at: "05:00:00"
-  condition: []
+  condition: "{{ is_state('input_boolean.irr_enable', 'on') }}"
   action:
     - service: homeassistant.turn_on
       entity_id: group.irr_power_group
@@ -11,7 +27,7 @@
   trigger:
     - platform: time
       at: "11:00:00"
-  condition: []
+  condition: "{{ is_state('input_boolean.irr_enable', 'on') }}"
   action:
     - service: homeassistant.turn_off
       entity_id: group.irr_power_group
