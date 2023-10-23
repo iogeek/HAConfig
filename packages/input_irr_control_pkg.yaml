@@ -1,0 +1,13 @@
+input_button:
+  irr_z1_btn:
+    name: "Zone 1 Irrigation"
+  irr_z2_btn:
+    name: "Zone 2 Irrigation"
+
+input_boolean: 
+  irr_z1_enable:
+    name: "Zone 1 enabled"
+  irr_z2_enable:
+    name: "Zone 2 enabled"
+  irr_enable:
+    name: "Irrigation enabled"
