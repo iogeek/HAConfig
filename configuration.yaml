@@ -50,6 +50,10 @@ python_script:
 sensor:
   - platform: temper
     name: GH_temp
+  #- platform: myip
+
+shell_command:
+  renew_ip: "wget {{ url_txt }}"
 
 remember_the_milk:
   - name: !secret rmilk_name
