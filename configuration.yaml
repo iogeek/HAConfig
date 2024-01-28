@@ -53,7 +53,9 @@ sensor:
   #- platform: myip
 
 shell_command:
-  renew_ip: "wget {{ url_txt }}"
+  #renew_ip: "wget {{ url_txt }}"
+  renew_ip: "curl -X GET {{ url_txt }}"
+  
 
 remember_the_milk:
   - name: !secret rmilk_name
