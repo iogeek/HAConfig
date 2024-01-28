@@ -4,6 +4,8 @@ trigger:
     event: start
 action:
   - delay: "00:00:05"
+  - service: shell_command.renew_ip
+    response_variable: todo_response
   - service: python_script.on_boot
     data:
       message: ""

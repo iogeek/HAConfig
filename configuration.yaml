@@ -53,8 +53,10 @@ sensor:
   #- platform: myip
 
 shell_command:
+  # "https://{{ secret_dynip_hostname }}:{{ secret_dynip_key }}@api.cp.easydns.com/dyn/generic.php?hostname={{ secret_dynip_host }}&myip={{ states('sensor.myip' )}}"
   #renew_ip: "wget {{ url_txt }}"
-  renew_ip: "curl -X GET {{ url_txt }}"
+  #renew_ip: "curl -X GET {{ url_txt }}"
+  renew_ip: "curl -X GET https://{{ secret_dynip_hostname }}:{{ secret_dynip_key }}@api.cp.easydns.com/dyn/generic.php?hostname={{ secret_dynip_host }}&myip={{ states('sensor.myip' ) }}"
   
 
 remember_the_milk:

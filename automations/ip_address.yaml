@@ -5,8 +5,6 @@
       entity_id: sensor.myip
   action:
     - service: shell_command.renew_ip
-      data:
-        url_txt: "https://{{ dynip_hostname }}:{{ dynip_key }}@api.cp.easydns.com/dyn/generic.php?hostname={{ dynip_host }}&myip={{ states('sensor.myip' )}}"
       response_variable: todo_response
     #- service: notify.YOU
     #  data_template:
