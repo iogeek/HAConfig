@@ -9,3 +9,10 @@
         parm2: "{{ states('input_text.text_script_parm2') }}"
         parm3: "{{ states('input_text.text_script_parm3') }}"
         script: "{{ states('input_text.text_script_name') }}"
+- alias: "Test Script ip change Btn"
+  trigger:
+    - platform: state
+      entity_id: input_button.test_ip
+  action:
+    - service: shell_command.renew_ip
+      response_variable: todo_response

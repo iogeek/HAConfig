@@ -13,6 +13,8 @@ input_button:
     name: "One shot btn test"
   test_script_btn:
     name: "Script btn test"
+  test_ip:
+    name: "Script ip test"
 
 input_text:
   text_1shot_action:

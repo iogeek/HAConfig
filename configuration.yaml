@@ -40,6 +40,8 @@ logger:
     homeassistant.components.python_script.set_gh_stations.py: info
     homeassistant.components.python_script.test.py: info
     homeassistant.components.python_script.test_helper.py: info
+    homeassistant.components.shell_command: error
+    homeassistant.components.shell_command.renew_ip: debug
 
 # Load frontend themes from the themes folder
 frontend:
@@ -56,7 +58,9 @@ shell_command:
   # "https://{{ secret_dynip_hostname }}:{{ secret_dynip_key }}@api.cp.easydns.com/dyn/generic.php?hostname={{ secret_dynip_host }}&myip={{ states('sensor.myip' )}}"
   #renew_ip: "wget {{ url_txt }}"
   #renew_ip: "curl -X GET {{ url_txt }}"
-  renew_ip: "curl -X GET https://{{ secret_dynip_hostname }}:{{ secret_dynip_key }}@api.cp.easydns.com/dyn/generic.php?hostname={{ secret_dynip_host }}&myip={{ states('sensor.myip' ) }}"
+  #renew_ip: "curl -X GET https://{{ secret_dynip_hostname }}:{{ secret_dynip_key }}@api.cp.easydns.com/dyn/generic.php?hostname={{ secret_dynip_host }}&myip={{ states('sensor.myip' ) }}"
+  # https://dynamic.zoneedit.com/auth/dynamic.html?host=<your_hostname>&dnsto=<your_ip>
+  renew_ip: "curl -X GET https://dynamic.zoneedit.com/auth/dynamic.html?host={{ secret_dynip_host }}&dns={{ states('sensor.myip' ) }}"
   
 
 remember_the_milk:
