@@ -2,12 +2,12 @@
   trigger:
     - platform: sun
       event: sunrise
-      offset: "-02:00:00" # 2 hours before sunrise
+      offset: "-00:30:00" # before sunrise
   condition: []
   action:
     - service: homeassistant.turn_on
       entity_id: light.snack_light
-    - delay: "01:{{ (range(30, 55)|random|int) }}:00" # random delay
+    - delay: "00:{{ (range(30, 55)|random|int) }}:00" # random delay
     - service: homeassistant.turn_off
       entity_id: light.snack_light
 
@@ -20,6 +20,6 @@
   action:
     - service: homeassistant.turn_on
       entity_id: light.snack_light
-    - delay: "01:{{ (range(1, 45)|random|int) }}:00" # random delay
+    - delay: "00:{{ (range(10, 30)|random|int) }}:00" # random delay
     - service: homeassistant.turn_off
       entity_id: light.snack_light

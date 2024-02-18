@@ -5,19 +5,7 @@
       entity_id: sensor.myip
   action:
     - service: shell_command.renew_ip
-      response_variable: todo_response
-    #- service: notify.YOU
-    #  data_template:
-    #    message: "New external IP address is {{ states('sensor.myip') }}"
-
-    #- if: "{{ todo_response['returncode'] == 0 }}"
-    #  then:
-    #    - service: notify.mobile_app_iphone
-    #      data:
-    #        title: "ToDo"
-    #        message: "{{ todo_response['stdout'] }}"
-    #  else:
-    #    - service: notify.mobile_app_iphone
-    #      data:
-    #        title: "ToDo file error"
-    #        message: "{{ todo_response['stderr'] }}"
+      data:
+        dynhost: !secret sdynhost
+        dynuname: !secret sdynuname
+        dynkey: !secret sdynkey

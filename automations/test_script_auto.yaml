@@ -15,4 +15,8 @@
       entity_id: input_button.test_ip
   action:
     - service: shell_command.renew_ip
-      response_variable: todo_response
+      data:
+        dynhost: !secret sdynhost
+        dynuname: !secret sdynuname
+        dynkey: !secret sdynkey
+

@@ -23,13 +23,13 @@ recorder:
   #     - input_boolean.gh_station11
 
 logger:
-  default: critical
+  default: warning
   logs:
     # logs levels
     #   critical fatal error warning warn info debug notset
     #
-    # log level for HA core
-    homeassistant.core: fatal
+    # log level for HA core - fatal, critical, error, warning
+    homeassistant.core: warning
     # log level for MQTT integration
     #homeassistant.components.mqtt: info
     # log level for all python scripts
@@ -49,20 +49,6 @@ frontend:
 
 python_script:
 
-sensor:
-  - platform: temper
-    name: GH_temp
-  #- platform: myip
-
-shell_command:
-  # "https://{{ secret_dynip_hostname }}:{{ secret_dynip_key }}@api.cp.easydns.com/dyn/generic.php?hostname={{ secret_dynip_host }}&myip={{ states('sensor.myip' )}}"
-  #renew_ip: "wget {{ url_txt }}"
-  #renew_ip: "curl -X GET {{ url_txt }}"
-  #renew_ip: "curl -X GET https://{{ secret_dynip_hostname }}:{{ secret_dynip_key }}@api.cp.easydns.com/dyn/generic.php?hostname={{ secret_dynip_host }}&myip={{ states('sensor.myip' ) }}"
-  # https://dynamic.zoneedit.com/auth/dynamic.html?host=<your_hostname>&dnsto=<your_ip>
-  renew_ip: "curl -X GET https://dynamic.zoneedit.com/auth/dynamic.html?host={{ secret_dynip_host }}&dns={{ states('sensor.myip' ) }}"
-  
-
 remember_the_milk:
   - name: !secret rmilk_name
     api_key: !secret rmilk_api_key
@@ -76,3 +62,18 @@ automation: !include_dir_merge_list automations/
 script: !include scripts.yaml
 scene: !include scenes.yaml
 group: !include groups.yaml
+
+sensor:
+  - platform: temper
+    name: GH_temp
+
+shell_command:
+  # "https://{{ dynuname }}:{{ dynkey }}@api.cp.easydns.com/dyn/generic.php?hostname={{ dynhost }}&myip={{ states('sensor.myip' ) }}"
+  renew_ip: "curl -X POST https://{{ dynuname }}:{{ dynkey }}@api.cp.zoneedit.com/dyn/generic.php?hostname={{ dynhost }}&myip={{ states('sensor.myip') }}"
+  # https://dynamic.zoneedit.com/auth/dynamic.html?host=<your_hostname>&dnsto=<your_ip>
+  #renew_ip:  "curl -X PUT https://dynamic.zoneedit.com/auth/dynamic.html?host={{ dynhost }}&dnsto={{ states('sensor.myip' ) }}"
+  #renew_ip: "curl -X PUT https://dynamic.zoneedit.com/auth/dynamic.html?host={{ dynhost }}&dns={{ states('sensor.myip' ) }}"
+  #
+  # dynhost: !secret sdynhost
+  # dynuname: !secret sdynuname
+  # dynkey: !secret sdynkey
