@@ -12,7 +12,7 @@
     - conditions: '{{ not sw_enable }}'
       sequence:
       - service: homeassistant.turn_off
-        entity_id: '{{ sw }}'
+        entity_id: group.irr_power_group
 
 - alias: "Power on Irrigation system"
   trigger:

@@ -33,8 +33,17 @@
   trigger:
     - platform: sun
       event: sunset
-      offset: '{{ states.sensor.daylightboostduck.state) }}' # either at or after sunset
   condition: []
   action:
+    - variables:
+        lightboost: >
+          {% set d = states('sensor.duckdaylightboost') %}
+          {% set h,m,s = d.split(':') | map('int') | list %}
+          {% set tst = "00:00:00" %} 
+          {% set tstr = '{:02d}:{:02d}:{:02d}'.format(h, m, s) %}
+          {{ tstr }}
+    - delay: "{{ lightboost }}"
     - service: homeassistant.turn_off
       entity_id: switch.eggbarn_light
+
+
