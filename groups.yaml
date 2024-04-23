@@ -9,25 +9,199 @@
 #- switch.sw6p3
 #- switch.sw6p5
 
+# Example configuration.yaml entry
+#switch:
+#  - platform: group
+#    entities:
+#      - switch.tv
+#      - switch.soundbar
+
+
+gh_station_light_0:
+  name: "GH Station Light 0"
+  entities:
+    - switch.sw1p2 # light
+
+gh_station_light_1:
+  name: "GH Station Light 1"
+  entities:
+    - switch.sw6p2 # light
+
+gh_station_light_2:
+  name: "GH Station Light 2"
+  entities:
+    - switch.sw1p1 # light
+
+gh_station_light_3:
+  name: "GH Station Light 3"
+  entities:
+    - switch.sw6p6 # light
+
+gh_station_light_4:
+  name: "GH Station Light 4"
+  entities:
+    - switch.sw6p5 # light
+
+gh_station_light_5:
+  name: "GH Station Light 5"
+  entities:
+    - switch.sw4p5 # light
+  
+gh_station_light_6:
+  name: "GH Station Light 6"
+  entities:
+    - switch.sw4p1 # light
+
+gh_station_light_7:
+  name: "GH Station Light 7"
+  entities:
+    - switch.sw4p4 # light
+
+gh_station_light_8:
+  name: "GH Station Light 8"
+  entities:
+    - switch.sw2p2 # light
+
+####  Heat
+gh_station_heat_0:
+  name: "GH Station Heat 0"
+  entities:
+    - switch.sw1p3 # matt
+    
+gh_station_heat_1:
+  name: "GH Station Heat 1"
+  entities:
+    - switch.sw6p1 # matt
+
+gh_station_heat_2:
+  name: "GH Station Heat 2"
+  entities:
+    - switch.sw6p3 # matt
+
+gh_station_heat_3:
+  name: "GH Station Heat 3"
+  entities:
+    - switch.sw5p3 # matt
+
+gh_station_heat_4:
+  name: "GH Station Heat 4"
+  entities:
+    - switch.sw6p3 # matt
+
+gh_station_heat_5:
+  name: "GH Station Heat 5"
+  entities:
+    - switch.sw4p5 # matt
+
+gh_station_heat_6:
+  name: "GH Station Heat 6"
+  entities:
+    - switch.sw4p3 # matt
+    - switch.sw4p2 # matt
+
+gh_station_heat_7:
+  name: "GH Station Heat 7"
+  entities:
+    - switch.sw5p1 # matt
+    - switch.sw5p2 # matt
+
+gh_station_heat_8:
+  name: "GH Station Heat 8"
+  entities:
+    - switch.sw2p3 # matt
+    - switch.sw2p1 # matt
+
+##  stations
 gh_station_0:
   name: "GH Station 0"
   entities:
-    - switch.sw6p4 # light
-    - switch.sw1p1 # heat
-    - input_boolean.gh_station0
+    - group.gh_station_light_0 # light
+    - group.gh_station_heat_0 # heat
+#    - input_boolean.gh_station0
 
 gh_station_1:
   name: "GH Station 1"
   entities:
-    - switch.sw6p2 # light
-    - switch.sw6p1 # heat
-    - input_boolean.gh_station1
+    - group.gh_station_light_1 # light
+    - group.gh_station_heat_1 # heat
+#    - input_boolean.gh_station0
+
+gh_station_2:
+  name: "GH Station 2"
+  entities:
+    - group.gh_station_light_2 # light
+    - group.gh_station_heat_2 # heat
+#    - input_boolean.gh_station0
+
+gh_station_3:
+  name: "GH Station 3"
+  entities:
+    - group.gh_station_light_3 # light
+    - group.gh_station_heat_3 # heat
+#    - input_boolean.gh_station0
+
+gh_station_4:
+  name: "GH Station 4"
+  entities:
+    - group.gh_station_light_4 # light
+    - group.gh_station_heat_4 # heat
+#    - input_boolean.gh_station0
+
+gh_station_5:
+  name: "GH Station 5"
+  entities:
+    - group.gh_station_light_5 # light
+    - group.gh_station_heat_5 # heat
+#    - input_boolean.gh_station0
+
+gh_station_6:
+  name: "GH Station 6"
+  entities:
+    - group.gh_station_light_6 # light
+    - group.gh_station_heat_6 # heat
+#    - input_boolean.gh_station0
+
+gh_station_7:
+  name: "GH Station 7"
+  entities:
+    - group.gh_station_light_7 # light
+    - group.gh_station_heat_7 # heat
+#    - input_boolean.gh_station0
+
+gh_station_8:
+  name: "GH Station 8"
+  entities:
+    - group.gh_station_light_8 # light
+    - group.gh_station_heat_8 # heat
+#    - input_boolean.gh_station0
+
+
+# gh_station_0:
+#   name: "GH Station 0"
+#   entities:
+#     - switch.sw6p4 # light
+#     - switch.sw1p1 # heat
+#     - input_boolean.gh_station0
+
+# gh_station_1:
+#   name: "GH Station 1"
+#   entities:
+#     - switch.sw6p2 # light
+#     - switch.sw6p1 # heat
+#     - input_boolean.gh_station1
 
 gh_all_stations:
   name: "GH All Stations"
   entities:
     - group.gh_station_0
     - group.gh_station_1
+    - group.gh_station_2
+    - group.gh_station_3
+    - group.gh_station_4
+    - group.gh_station_5
+    - group.gh_station_6
+    - group.gh_station_7
+    - group.gh_station_8
 
 gh_all_plant_light_group:
   name: "Greenhouse All Lights"

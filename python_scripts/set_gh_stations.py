@@ -30,46 +30,40 @@ logger.info("set_gh_stations:start:desiredStations[%s]:desiredState[%s]",desired
 lightData = {
 # toggle switch      light list    
  #["test",           "test.test",  
-  "gh_station0":    "switch.sw6p4",
+  "gh_station0":    "switch.sw1p2",
   "gh_station1":    "switch.sw6p2",
-  "gh_station2":    "switch.sw1p2",
+  "gh_station2":    "switch.sw1p1",
   "gh_station3":    "switch.sw6p6",
-  "gh_station4":    "switch.sw4p1",
-  "gh_station5":    "switch.sw5p1",
-  "gh_station6":    "switch.sw3p1",
-  "gh_station7":    "switch.sw5p2",
-  "gh_station8":    "switch.sw5p1",
-  "gh_station9":    "switch.sw3p1",
-  "gh_station10":   "switch.sw5p2",
-  "gh_station11":   "switch.sw2p2",
+  "gh_station4":    "switch.sw6p5",
+  "gh_station5":    "switch.sw4p5",
+  "gh_station6":    "switch.sw4p1",
+  "gh_station7":    "switch.sw4p4",
+  "gh_station8":    "switch.sw2p2"
 }
 
 
 heatData = {
 # toggle switch      heat list
  #["test",            "test.test"], 
-  "gh_station0":     "switch.sw1p1", 
+  "gh_station0":     "switch.sw1p3", 
   "gh_station1":     "switch.sw6p1", 
-  "gh_station2":     "switch.sw1p3",
+  "gh_station2":     "switch.sw6p3",
   "gh_station3":     "switch.sw5p3",  
-  "gh_station4":     "switch.sw4p2,switch.sw4p3,switch.sw4p4", #
-  "gh_station5":     "switch.sw3p5",  
-  "gh_station6":     "switch.sw3p3",  
-  "gh_station7":     "switch.sw3p4",
-  "gh_station8":     "switch.sw3p6",
-  "gh_station9":     "switch.sw4p5",
-  "gh_station10":    "switch.sw4p6",
-  "gh_station11":    "switch.sw2p3"
+  "gh_station4":     "switch.sw6p3", #
+  "gh_station5":     "switch.sw4p6",  
+  "gh_station6":     "switch.sw4p3, switch.sw4p2",  
+  "gh_station7":     "switch.sw5p1, switch.sw5p2",
+  "gh_station8":     "switch.sw2p1, switch.sw2p3"
 }
 
 
 sharedLight = {
-  "gh_station5":    "gh_station8",
-  "gh_station6":    "gh_station9",  
-  "gh_station7":    "gh_station10",
-  "gh_station8":    "gh_station5",
-  "gh_station9":    "gh_station6",
-  "gh_station10":   "gh_station7"
+ # "gh_station5":    "gh_station8",
+ # "gh_station6":    "gh_station9",  
+ # "gh_station7":    "gh_station10",
+ # "gh_station8":    "gh_station5",
+ # "gh_station9":    "gh_station6",
+ # "gh_station10":   "gh_station7"
 }
 
 sharedHeat = {

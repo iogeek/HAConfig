@@ -4,6 +4,9 @@ homeassistant:
 # Loads default set of integrations. Do not remove.
 default_config:
 # Example configuration.yaml entry with exclude
+
+bluetooth:
+
 recorder:
   purge_keep_days: 5
   #db_url: sqlite:////home/user/.homeassistant/test

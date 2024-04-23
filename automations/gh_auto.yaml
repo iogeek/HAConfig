@@ -1,29 +1,83 @@
-- alias: "Sunset Greenhouse lights on"
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: 0
-  condition: []
-  action:
-    - service: python_script.set_gh_stations
-      data:
-        stations: 'all'
-        state: 'on'
+# - alias: "Sunset Greenhouse lights on"
+#   trigger:
+#     - platform: sun
+#       event: sunset
+#       offset: 0
+#   condition: []
+#   action:
+#     - service: python_script.set_gh_stations
+#       data:
+#         stations: 'all'
+#         state: 'on'
 #    - service: homeassistant.turn_on
 #      entity_id: group.gh_plant_light_group
 
+- alias: "PM Greenhouse stations on"
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "-00:50:00"
+  condition: []
+  action:
+    - if: "{{ is_state('input_boolean.gh_station0', 'on') }}"
+      then:
+        - service: homeassistant.turn_on
+          entity_id: group.gh_station_0
+    - if: "{{ is_state('input_boolean.gh_station1', 'on') }}"
+      then:
+        - service: homeassistant.turn_on
+          entity_id: group.gh_station_1
+    - if: "{{ is_state('input_boolean.gh_station2', 'on') }}"
+      then:
+        - service: homeassistant.turn_on
+          entity_id: group.gh_station_2
+    - if: "{{ is_state('input_boolean.gh_station3', 'on') }}"
+      then:
+        - service: homeassistant.turn_on
+          entity_id: group.gh_station_3
+    - if: "{{ is_state('input_boolean.gh_station4', 'on') }}"
+      then:
+        - service: homeassistant.turn_on
+          entity_id: group.gh_station_4
+    - if: "{{ is_state('input_boolean.gh_station5', 'on') }}"
+      then:
+        - service: homeassistant.turn_on
+          entity_id: group.gh_station_5
+    - if: "{{ is_state('input_boolean.gh_station6', 'on') }}"
+      then:
+        - service: homeassistant.turn_on
+          entity_id: group.gh_station_6
+    - if: "{{ is_state('input_boolean.gh_station7', 'on') }}"
+      then:
+        - service: homeassistant.turn_on
+          entity_id: group.gh_station_7
+    - if: "{{ is_state('input_boolean.gh_station8', 'on') }}"
+      then:
+        - service: homeassistant.turn_on
+          entity_id: group.gh_station_8
 
-- alias: "Sunrise Greenhouse lights off"
+
+- alias: "AM Greenhouse stations off"
   trigger:
     - platform: sun
       event: sunrise
       offset: 0
   condition: []
   action:
-    - service: python_script.set_gh_stations
-      data:
-        stations: 'all'
-        state: 'off'
+    - service: homeassistant.turn_off
+      entity_id: group.gh_all_stations
+
+# - alias: "Sunrise Greenhouse lights off"
+#   trigger:
+#     - platform: sun
+#       event: sunrise
+#       offset: 0
+#   condition: []
+#   action:
+#     - service: python_script.set_gh_stations
+#       data:
+#         stations: 'all'
+#         state: 'off'
 #    - service: homeassistant.turn_off
 #      entity_id: group.gh_plant_light_group
 
