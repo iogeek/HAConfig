@@ -1,0 +1,3 @@
+input_boolean: 
+  garage_light_keep_on:
+    name: "Garage light keep on"

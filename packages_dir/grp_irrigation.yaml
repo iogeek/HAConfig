@@ -1,0 +1,8 @@
+
+group:
+  irr_power_group:
+    name: "Irrigation power switches"
+    entities:
+      - switch.osw1b
+      - switch.out2 #
+      - switch.out3 #

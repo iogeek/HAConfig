@@ -2,58 +2,34 @@ desiredState = data.get("state")  # on/off
 desiredStations = data.get("stations") # all or station name (ie gh_station1)
 logger.info("set_gh_stations:start:desiredStations[%s]:desiredState[%s]",desiredStations, desiredState)
 
-#light                                      heat
-#                           sw 1
-# #- switch.sw1p2 #s2                   #- switch.sw1p1 #s0
-#                                       #- switch.sw1p3 #s2
-#                          sw 2
-# #- switch.sw2p2 #s11                  #- switch.sw2p3 #s11
-#                          sw 3
-# #- switch.sw3p1 #s6/9                 # - switch.sw3p3 #s6
-#                                       # - switch.sw3p4 #s7
-#                                       # - switch.sw3p5 #s5
-#                                       # - switch.sw3p6 #s8
-#                          sw 4
-# #- switch.sw4p1 #s4                   # - switch.sw4p2 #s4-1
-#                                       # - switch.sw4p3 #s4-2
-#                                       # - switch.sw4p4 #s4-3
-#                                       # - switch.sw4p5 #s9
-#                                       # - switch.sw4p6 #s10
-#                          sw 5
-# #- switch.sw5p1 #s5/8                 #- switch.sw5p3 #s3
-# #- switch.sw5p2 #s7/10
-#                          sw 6
-# #- switch.sw6p2 #s1                   #- switch.sw6p1 #s1
-# #- switch.sw6p4 #s0
-# #- switch.sw6p6 #s3
 
 lightData = {
 # toggle switch      light list    
  #["test",           "test.test",  
-  "gh_station0":    "switch.sw1p2",
-  "gh_station1":    "switch.sw6p2",
-  "gh_station2":    "switch.sw1p1",
-  "gh_station3":    "switch.sw6p6",
-  "gh_station4":    "switch.sw6p5",
-  "gh_station5":    "switch.sw4p5",
-  "gh_station6":    "switch.sw4p1",
-  "gh_station7":    "switch.sw4p4",
-  "gh_station8":    "switch.sw2p2"
+  "gh_station0":    "group.gh_station_light_0",
+  "gh_station1":    "group.gh_station_light_1",
+  "gh_station2":    "group.gh_station_light_2",
+  "gh_station3":    "group.gh_station_light_3",
+  "gh_station4":    "group.gh_station_light_4",
+  "gh_station5":    "group.gh_station_light_5",
+  "gh_station6":    "group.gh_station_light_6",
+  "gh_station7":    "group.gh_station_light_7",
+  "gh_station8":    "group.gh_station_light_8"
 }
 
 
 heatData = {
 # toggle switch      heat list
  #["test",            "test.test"], 
-  "gh_station0":     "switch.sw1p3", 
-  "gh_station1":     "switch.sw6p1", 
-  "gh_station2":     "switch.sw6p3",
-  "gh_station3":     "switch.sw5p3",  
-  "gh_station4":     "switch.sw6p3", #
-  "gh_station5":     "switch.sw4p6",  
-  "gh_station6":     "switch.sw4p3, switch.sw4p2",  
-  "gh_station7":     "switch.sw5p1, switch.sw5p2",
-  "gh_station8":     "switch.sw2p1, switch.sw2p3"
+  "gh_station0":     "group.gh_station_heat_0", 
+  "gh_station1":     "group.gh_station_heat_1", 
+  "gh_station2":     "group.gh_station_heat_2",
+  "gh_station3":     "group.gh_station_heat_3",  
+  "gh_station4":     "group.gh_station_heat_4", #
+  "gh_station5":     "group.gh_station_heat_5",  
+  "gh_station6":     "group.gh_station_heat_6",  
+  "gh_station7":     "group.gh_station_heat_7",
+  "gh_station8":     "group.gh_station_heat_8"
 }
 
 
@@ -150,7 +126,8 @@ else:
   station = desiredStations.split(".")  # will be in the format of 'input_boolean.gh_station1'
   setStation(station[1], desiredState, False)
 
-
+hass.services.call('python_script', 'set_gh_groups', {})
+logger.info("set_gh_stations:end:")
 
 
 # All, enabled

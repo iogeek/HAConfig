@@ -39,11 +39,24 @@
         lightboost: >
           {% set d = states('sensor.duckdaylightboost') %}
           {% set h,m,s = d.split(':') | map('int') | list %}
-          {% set tst = "00:00:00" %} 
+          {% if h < 1 %}
+            {% set h = 1 %}
+          {% endif %}
           {% set tstr = '{:02d}:{:02d}:{:02d}'.format(h, m, s) %}
           {{ tstr }}
     - delay: "{{ lightboost }}"
     - service: homeassistant.turn_off
       entity_id: switch.eggbarn_light
 
+
+#based on https://community.home-assistant.io/t/help-how-to-turn-on-switch-at-adjustable-time-turn-off-switch-at-adjustable-time/189733/4
+# below gives error
+# - alias: "Night Barn lights off"
+#   trigger:
+#     platform: template
+#     value_template: "{{ states('sensor.time') == (states('sensor.ducksunset') | int | timestamp_custom('%H:%M', False)) }}"
+#   condition: []
+#   action:
+#     - service: homeassistant.turn_off
+#       entity_id: switch.eggbarn_light
 

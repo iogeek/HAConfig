@@ -1,0 +1,26 @@
+climate:
+  - platform: generic_thermostat
+    unique_id: gh_heat_mat_control
+    name: Greenhouse Heat Matt Control
+    heater: group.gh_enabled_heat_mats
+    target_sensor: sensor.tp350s_5fd9_temperature
+    min_temp: 55
+    max_temp: 68
+    ac_mode: false
+    target_temp: 65
+    cold_tolerance: 0.3
+    hot_tolerance: 0
+    min_cycle_duration:
+      seconds: 30
+    keep_alive:
+      minutes: 3
+    comfort_temp: 65
+    away_temp: 0
+    precision: 0.1
+
+
+input_boolean: 
+  gh_climate_mats:
+    name: "Greenhouse Mat Climate"
+
+  #climate.greenhouse_heat_matt_control

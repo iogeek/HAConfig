@@ -1,0 +1,21 @@
+- alias: "Garage Light Keep On"
+  trigger:
+    - platform: state
+      entity_id:
+        - switch.garage_light
+      # Optional
+      from: "on"
+      # Optional
+      to: "off"
+      # If given, will trigger when the condition has been true for X time; you can also use days and milliseconds.
+      for:
+        hours: 0
+        minutes: 2
+        seconds: 0
+  condition: []
+  action:
+    - if: "{{ is_state('input_boolean.garage_light_keep_on', 'on') }}"
+      then:
+        - service: homeassistant.turn_on
+          entity_id: switch.garage_light
+ 

@@ -1,5 +1,5 @@
 homeassistant:
-  packages: !include_dir_named packages
+  packages: !include_dir_named packages_dir
 
 # Loads default set of integrations. Do not remove.
 default_config:
@@ -41,6 +41,7 @@ logger:
     #homeassistant.components.python_script.esp_cmd.py: info
     homeassistant.components.python_script.on_boot.py: info
     homeassistant.components.python_script.set_gh_stations.py: info
+    homeassistant.components.python_script.set_gh_groups.py: info
     homeassistant.components.python_script.test.py: info
     homeassistant.components.python_script.test_helper.py: info
     homeassistant.components.shell_command: error
@@ -52,19 +53,21 @@ frontend:
 
 python_script:
 
-remember_the_milk:
-  - name: !secret rmilk_name
-    api_key: !secret rmilk_api_key
-    shared_secret: !secret rmilk_shared_secret
+#remember_the_milk:
+#  - name: !secret rmilk_name
+#    api_key: !secret rmilk_api_key
+#    shared_secret: !secret rmilk_shared_secret
 
 # Text to speech
 tts:
   - platform: google_translate
 
-automation: !include_dir_merge_list automations/
+group: !include_dir_merge_list group_dir/
+automation: !include_dir_merge_list automations_dir
 script: !include scripts.yaml
 scene: !include scenes.yaml
-group: !include groups.yaml
+
+#group: !include groups_file.yaml
 
 sensor:
   - platform: temper
