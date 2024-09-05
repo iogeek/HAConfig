@@ -38,7 +38,7 @@ logger:
     # log level for all python scripts
     homeassistant.components.python_script: error
     # individual log level for this python script
-    #homeassistant.components.python_script.esp_cmd.py: info
+    homeassistant.components.python_script.esp_cmd.py: info
     homeassistant.components.python_script.on_boot.py: info
     homeassistant.components.python_script.set_gh_stations.py: info
     homeassistant.components.python_script.set_gh_groups.py: info
