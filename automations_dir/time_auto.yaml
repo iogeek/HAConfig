@@ -1,0 +1,7 @@
+- alias: "Hourly Trigger"
+  triggers:
+    - trigger: time_pattern
+      # Matches every hour at 5 minutes past whole
+      minutes: 5
+  action:
+    - service: python_script.timed_task

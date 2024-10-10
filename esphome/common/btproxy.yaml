@@ -1,0 +1,23 @@
+#esphome:
+  #name_add_mac_suffix: true
+
+#esp32:
+#  board: ${board}
+#  framework:
+#    type: esp-idf
+
+# Enable Home Assistant API
+#api:
+
+#ota:
+#  platform: esphome
+
+
+#esp32_ble_tracker:
+#  scan_parameters:
+#    interval: 1100ms
+#    window: 1100ms
+#    active: true
+
+bluetooth_proxy:
+  active: true

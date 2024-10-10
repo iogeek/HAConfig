@@ -1,0 +1,8 @@
+#- alias: "Test Script ip change Btn"
+#  trigger:
+#    - platform: state
+#      entity_id: input_button.test_purge_btn:
+#  action: recorder.purge_entities
+#  data:
+#    domains: sun
+#    entity_globs: domain*.object_id*  #sensor.springfield*

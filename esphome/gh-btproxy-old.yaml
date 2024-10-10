@@ -1,0 +1,12 @@
+substitutions:
+  device_name: "gh-btproxy"
+  device_friendlyname: "gh-btproxy"
+  device_description: "gh btproxy"
+  #device_board: wemos_d1_uno32
+  device_board: esp32dev
+  #device_platform: espressif32
+
+#<<: !include common/board.yaml 
+<<: !include common/plat-esp32.yaml  
+<<: !include common/board.yaml 
+<<: !include common/btproxy.yaml

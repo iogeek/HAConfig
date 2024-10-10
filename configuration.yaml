@@ -1,11 +1,19 @@
 homeassistant:
-  packages: !include_dir_named packages_dir
+
+auth_providers:
+  - type: trusted_networks
+    trusted_networks:
+      - 192.168.1.0/24
+
+
+packages: !include_dir_named packages_dir
 
 # Loads default set of integrations. Do not remove.
 default_config:
 # Example configuration.yaml entry with exclude
 
-bluetooth:
+# pi has bluetooth.  odroid does not
+#bluetooth:
 
 recorder:
   purge_keep_days: 5
@@ -36,12 +44,13 @@ logger:
     # log level for MQTT integration
     #homeassistant.components.mqtt: info
     # log level for all python scripts
-    homeassistant.components.python_script: error
+    homeassistant.components.python_script: info
     # individual log level for this python script
     homeassistant.components.python_script.esp_cmd.py: info
     homeassistant.components.python_script.on_boot.py: info
     homeassistant.components.python_script.set_gh_stations.py: info
     homeassistant.components.python_script.set_gh_groups.py: info
+    homeassistant.components.python_timed_task.py: info
     homeassistant.components.python_script.test.py: info
     homeassistant.components.python_script.test_helper.py: info
     homeassistant.components.shell_command: error
@@ -71,7 +80,6 @@ scene: !include scenes.yaml
 
 sensor:
   - platform: temper
-    name: GH_temp
 
 shell_command:
   # "https://{{ dynuname }}:{{ dynkey }}@api.cp.easydns.com/dyn/generic.php?hostname={{ dynhost }}&myip={{ states('sensor.myip' ) }}"
@@ -83,3 +91,11 @@ shell_command:
   # dynhost: !secret sdynhost
   # dynuname: !secret sdynuname
   # dynkey: !secret sdynkey
+
+rest_command:
+  update_ip:
+    url: "https://api.cp.zoneedit.com/dyn/generic.php"
+    method: POST
+    username: "{{ dynuname }}"
+    password: "{{ dynkey }}"
+    payload: "hostname={{ dynhost }}&myip={{ states('sensor.myip') }}"

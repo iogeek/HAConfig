@@ -1,0 +1,17 @@
+substitutions:
+  name: patio-btproxy
+  friendly_name: patio-btproxy
+packages:
+  esphome.bluetooth-proxy: github://esphome/bluetooth-proxies/esp32-generic/esp32-generic.yaml@main
+esphome:
+  name: ${name}
+  name_add_mac_suffix: false
+  friendly_name: ${friendly_name}
+api:
+  encryption:
+    key: /VabmJWOnTwY37xxPVMj/mK4VVfy+AENF67eqcmCgVk=
+
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password

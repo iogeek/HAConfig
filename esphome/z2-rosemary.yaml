@@ -1,9 +1,0 @@
-substitutions:
-  device_name: "z2-rosemary"
-  device_friendlyname: "z2-rosemary"
-  device_description: "zone 2 rosemary"
-  device_board: d1_mini
-
-#<<: !include common/board.yaml  
-<<: !include common/board.yaml 
-<<: !include common/fet1c.yaml 
