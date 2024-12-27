@@ -1,0 +1,17 @@
+- alias: "Sunset Egg Path"
+  trigger:
+    - platform: sun
+      event: sunset
+  condition: []
+  action:
+    - service: homeassistant.turn_on
+      entity_id: light.led_bulb_string_lights
+
+- alias: "Night Barn yard  lights off"
+  trigger:
+    - platform: time
+      at: "00:30:00" # off at 11p
+  condition: []
+  action:
+    - service: homeassistant.turn_off
+      entity_id: light.led_bulb_string_lights

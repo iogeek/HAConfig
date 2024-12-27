@@ -13,6 +13,8 @@ input_button:
     name: "One shot btn test"
   test_script_btn:
     name: "Script btn test"
+  test_timer_btn:
+    name: "Script timer test"
   test_ip:
     name: "Script ip test"
   test_purge_btn:

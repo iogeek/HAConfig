@@ -1,0 +1,30 @@
+- id: '1734320711731'
+  alias: Sunset Duck Path
+  description: ''
+  triggers:
+  - trigger: sun
+    event: sunset
+    offset: 0
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 9f3dd1ae636000f853bd58509c4f3cbe
+    entity_id: 32291415ff6d901f6839ddeab44f0387
+    domain: light
+    brightness_pct: 100
+  mode: single
+- id: '1734320852612'
+  alias: Sunset Duck Path
+  description: ''
+  triggers:
+  - trigger: sun
+    event: sunset
+    offset: 0
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 9f3dd1ae636000f853bd58509c4f3cbe
+    entity_id: 32291415ff6d901f6839ddeab44f0387
+    domain: light
+    brightness_pct: 100
+  mode: single

@@ -1,0 +1,20 @@
+- alias: "Morning Holiday tree on"
+  trigger:
+    - platform: time
+      at: "09:00:00" # on at 9a
+  condition: []
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.micro_cfh_christmas_tree
+
+# simplifying trigger - https://community.home-assistant.io/t/best-practices-for-on-off-within-the-same-automation/330121
+# min light with poultry - https://community.home-assistant.io/t/chicken-eggs/139971/27
+
+- alias: "Evening Holiday tree off"
+  trigger:
+    - platform: time
+      at: "23:00:00" # off at 11p
+  condition: []
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.micro_cfh_christmas_tree

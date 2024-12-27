@@ -10,6 +10,13 @@
         parm3: "{{ states('input_text.text_script_parm3') }}"
         script: "{{ states('input_text.text_script_name') }}"
 
+- alias: "Test Script Timer Btn"
+  trigger:
+    - platform: state
+      entity_id: input_button.test_timer_btn
+  action:
+    - service: python_script.timed_task
+    
 - alias: "Test Script ip change Btn"
   trigger:
     - platform: state

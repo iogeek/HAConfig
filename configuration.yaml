@@ -1,20 +1,18 @@
 homeassistant:
-
-auth_providers:
-  - type: trusted_networks
-    trusted_networks:
-      - 192.168.1.0/24
-
-
-packages: !include_dir_named packages_dir
-
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.1.0/24
+      allow_bypass_login: true
+    - type: homeassistant
+  packages: !include_dir_named packages_dir
 # Loads default set of integrations. Do not remove.
 default_config:
 # Example configuration.yaml entry with exclude
-
+#
 # pi has bluetooth.  odroid does not
 #bluetooth:
-
+#
 recorder:
   purge_keep_days: 5
   #db_url: sqlite:////home/user/.homeassistant/test
@@ -32,7 +30,6 @@ recorder:
   #     - input_boolean.gh_station9
   #     - input_boolean.gh_station10
   #     - input_boolean.gh_station11
-
 logger:
   default: warning
   logs:
@@ -55,32 +52,29 @@ logger:
     homeassistant.components.python_script.test_helper.py: info
     homeassistant.components.shell_command: error
     homeassistant.components.shell_command.renew_ip: debug
-
 # Load frontend themes from the themes folder
 frontend:
   themes: !include_dir_merge_named themes
-
+#
 python_script:
-
 #remember_the_milk:
 #  - name: !secret rmilk_name
 #    api_key: !secret rmilk_api_key
 #    shared_secret: !secret rmilk_shared_secret
-
 # Text to speech
 tts:
   - platform: google_translate
-
+#
 group: !include_dir_merge_list group_dir/
 automation: !include_dir_merge_list automations_dir
 script: !include scripts.yaml
 scene: !include scenes.yaml
-
+#
 #group: !include groups_file.yaml
-
+#
 sensor:
   - platform: temper
-
+#
 shell_command:
   # "https://{{ dynuname }}:{{ dynkey }}@api.cp.easydns.com/dyn/generic.php?hostname={{ dynhost }}&myip={{ states('sensor.myip' ) }}"
   renew_ip: "curl -X POST https://{{ dynuname }}:{{ dynkey }}@api.cp.zoneedit.com/dyn/generic.php?hostname={{ dynhost }}&myip={{ states('sensor.myip') }}"
@@ -91,7 +85,7 @@ shell_command:
   # dynhost: !secret sdynhost
   # dynuname: !secret sdynuname
   # dynkey: !secret sdynkey
-
+#
 rest_command:
   update_ip:
     url: "https://api.cp.zoneedit.com/dyn/generic.php"

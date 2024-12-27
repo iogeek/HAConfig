@@ -2,7 +2,7 @@
   trigger:
     - platform: sun
       event: sunset
-      offset: '-01:00:00'     # 1 hour before sunset
+      offset: "-01:00:00" # 1 hour before sunset
   condition: []
   action:
     - service: homeassistant.turn_on
@@ -10,9 +10,8 @@
 
 - alias: "Night Barn yard  lights off"
   trigger:
-    - platform: sun
-      event: sunset
-      offset: '01:00:00'   # 1 hours after sunset 
+    - platform: time
+      at: "00:30:00" # off at 11p
   condition: []
   action:
     - service: homeassistant.turn_off
