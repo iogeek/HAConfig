@@ -75,21 +75,21 @@ scene: !include scenes.yaml
 sensor:
   - platform: temper
 #
-shell_command:
-  # "https://{{ dynuname }}:{{ dynkey }}@api.cp.easydns.com/dyn/generic.php?hostname={{ dynhost }}&myip={{ states('sensor.myip' ) }}"
-  renew_ip: "curl -X POST https://{{ dynuname }}:{{ dynkey }}@api.cp.zoneedit.com/dyn/generic.php?hostname={{ dynhost }}&myip={{ states('sensor.myip') }}"
-  # https://dynamic.zoneedit.com/auth/dynamic.html?host=<your_hostname>&dnsto=<your_ip>
-  #renew_ip:  "curl -X PUT https://dynamic.zoneedit.com/auth/dynamic.html?host={{ dynhost }}&dnsto={{ states('sensor.myip' ) }}"
-  #renew_ip: "curl -X PUT https://dynamic.zoneedit.com/auth/dynamic.html?host={{ dynhost }}&dns={{ states('sensor.myip' ) }}"
-  #
-  # dynhost: !secret sdynhost
-  # dynuname: !secret sdynuname
-  # dynkey: !secret sdynkey
-#
+# shell_command:
+#   # "https://{{ dynuname }}:{{ dynkey }}@api.cp.easydns.com/dyn/generic.php?hostname={{ dynhost }}&myip={{ states('sensor.myip' ) }}"
+#   renew_ip: "curl -X POST https://{{ dynuname }}:{{ dynkey }}@api.cp.zoneedit.com/dyn/generic.php?hostname={{ dynhost }}&myip={{ states('sensor.myip') }}"
+#   # https://dynamic.zoneedit.com/auth/dynamic.html?host=<your_hostname>&dnsto=<your_ip>
+#   #renew_ip:  "curl -X PUT https://dynamic.zoneedit.com/auth/dynamic.html?host={{ dynhost }}&dnsto={{ states('sensor.myip' ) }}"
+#   #renew_ip: "curl -X PUT https://dynamic.zoneedit.com/auth/dynamic.html?host={{ dynhost }}&dns={{ states('sensor.myip' ) }}"
+#   #
+#   # dynhost: !secret sdynhost
+#   # dynuname: !secret sdynuname
+#   # dynkey: !secret sdynkey
+# #
 rest_command:
-  update_ip:
-    url: "https://api.cp.zoneedit.com/dyn/generic.php"
-    method: POST
-    username: "{{ dynuname }}"
-    password: "{{ dynkey }}"
-    payload: "hostname={{ dynhost }}&myip={{ states('sensor.myip') }}"
+#   update_ip:
+#     url: "https://api.cp.zoneedit.com/dyn/generic.php"
+#     method: POST
+#     username: "{{ dynuname }}"
+#     password: "{{ dynkey }}"
+#     payload: "hostname={{ dynhost }}&myip={{ states('sensor.myip') }}"

@@ -17,18 +17,18 @@
   action:
     - service: python_script.timed_task
     
-- alias: "Test Script ip change Btn"
-  trigger:
-    - platform: state
-      entity_id: input_button.test_ip
-  action:
-    - service: shell_command.renew_ip
-      data:
-        dynhost: !secret sdynhost
-        dynuname: !secret sdynuname
-        dynkey: !secret sdynkey
-    - service: rest_command.update_ip
-      data:
-        dynhost: !secret sdynhost
-        dynuname: !secret sdynuname
-        dynkey: !secret sdynkey
+# - alias: "Test Script ip change Btn"
+#   trigger:
+#     - platform: state
+#       entity_id: input_button.test_ip
+#   action:
+#     - service: shell_command.renew_ip
+#       data:
+#         dynhost: !secret sdynhost
+#         dynuname: !secret sdynuname
+#         dynkey: !secret sdynkey
+#     - service: rest_command.update_ip
+#       data:
+#         dynhost: !secret sdynhost
+#         dynuname: !secret sdynuname
+#         dynkey: !secret sdynkey

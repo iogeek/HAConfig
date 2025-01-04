@@ -1,0 +1,239 @@
+ota:
+  #password: "XXX"
+  platform: esphome
+
+captive_portal:
+
+substitutions:
+  name: catfeeder
+  device_description: "Petkit Solo"
+  default_scoops: "1" #4
+  #1 scoop = ~10g
+
+esphome:
+  name: $name
+  comment: $device_description
+  on_boot:
+    - light.turn_on:
+        id: led
+        effect: fast_blink
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+logger:
+  level: INFO
+  baud_rate: 0
+
+globals:
+  - id: default_scoops
+    type: int
+    initial_value: '${default_scoops}'
+  - id: scoops_count
+    type: int
+  - id: max_scoops
+    type: int
+  - id: food_sensor_count
+    type: int
+
+# 192.168.69.233
+api:
+  encryption:
+    key: "J2FPyNpJMRvy8RJTNdvseaELa6BGtpzobd4lKV6Zvzo="
+  services:
+    - service: feed_cat
+      variables:
+        scoops: int
+      then:
+        - logger.log:
+            level: INFO
+            format: "feed_cat service called (scoops = %d)"
+            args: [ scoops ]
+        - lambda: |-
+            id(scoops_count) = 0;
+            id(food_sensor_count) = 0;
+            id(max_scoops) = scoops;
+        - switch.turn_on: feed_forward
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  #ap:
+  #  ssid: "Petkit-Solo Fallback Hotspot"
+  #manual_ip:
+  #  # Set this to the IP of the ESP
+  #  static_ip: 192.168.69.233
+  #  # Set this to the IP address of the router. Often ends with .1
+  #  gateway: 192.168.69.1
+  #  # The subnet of the network. 255.255.255.0 works for most home networks.
+  #  subnet: 255.255.255.0
+
+light:
+  - platform: binary
+    name: Status Led
+    id: led
+    output: led_output
+    effects:
+      - strobe:
+          name: fast_blink
+          colors:
+            - state: True
+              duration: 125ms
+            - state: False
+              duration: 125ms
+    internal: True
+
+output:
+  - id: led_output
+    platform: gpio
+    pin: GPIO5
+
+interval:
+  - interval: 1s
+    then:
+      if:
+        condition:
+          wifi.connected:
+        then:
+          - light.turn_on:
+              id: led
+              effect: None
+        else:
+          - light.turn_on:
+              id: led
+              effect: fast_blink
+
+uart:
+  tx_pin: GPIO1
+  rx_pin: GPIO3
+  baud_rate: 9600
+
+binary_sensor:
+  - name: "Manual Feed Button"
+    id: manual_feed_button
+    platform: gpio
+    pin: 
+      number: GPIO34
+      inverted: true
+    on_press:
+      then:
+        - lambda: |-
+            id(scoops_count) = 0;
+            id(food_sensor_count) = 0;
+            id(max_scoops) = id(default_scoops);
+        - switch.turn_on: feed_forward
+        - logger.log:
+            level: INFO
+            format: "Serving %d scoops"
+            args: [ id(max_scoops) ]
+    internal: true
+
+  - name: "Motor Sensor"
+    id: motor_sensor
+    platform: gpio
+    pin: 
+      number: GPIO27
+      inverted: true
+    on_press:
+      then:
+        - lambda: |-
+            id(scoops_count) += 1;
+            if (id(scoops_count) == id(max_scoops)) {
+              id(feed_forward).turn_off();
+            }
+        - logger.log:
+            level: INFO
+            format: "%d/%d scoops served"
+            args: [ id(scoops_count), id(max_scoops) ]
+    internal: true
+
+  - name: "Infared Feed Sensor"
+    id: feed_sensor
+    platform: gpio
+    pin: 
+      number: GPIO14
+    on_press:
+      then:
+        - lambda: |-
+            id(food_sensor_count) += 1;
+    internal: true
+
+switch:
+  - name: "Enable Sensors"
+    id: enable_sensors
+    platform: gpio
+    pin: 
+      number: GPIO33
+    restore_mode: ALWAYS_ON
+    disabled_by_default: true
+    internal: true
+
+  - name: "Enable Feeder Motor"
+    id: enable_feeder_motor
+    platform: gpio
+    pin: 
+      number: GPIO19
+    restore_mode: ALWAYS_OFF
+    disabled_by_default: true
+    on_turn_off:
+      then:
+        - if:
+            condition:
+              lambda: |-
+                return id(food_sensor_count) == 0;
+            then:
+              - homeassistant.event:
+                  event: "esphome.${name}_food_dispensed"
+                  data:
+                    message: "Food not dispensed"
+              - logger.log:
+                  level: ERROR
+                  format: "Food not dispensed"
+    internal: true
+
+  - name: "Feed Forward"
+    id: feed_forward
+    platform: gpio
+    pin: 
+      number: GPIO18
+    restore_mode: ALWAYS_OFF
+    on_turn_on:
+      then:
+        - switch.turn_on: enable_feeder_motor
+    on_turn_off:
+      then:
+        - switch.turn_off: enable_feeder_motor
+    internal: true
+
+  - name: "Feeder Reverse"
+    id: feed_reverse
+    platform: gpio
+    pin: 
+      number: GPIO17
+    restore_mode: ALWAYS_OFF
+    internal: true
+
+  - name: "Feed Cat"
+    id: feed_cat
+    platform: template
+    turn_on_action:
+      - lambda: |-
+            id(scoops_count) = 0;
+            id(food_sensor_count) = 0;
+            id(max_scoops) = id(default_scoops);
+      - switch.turn_on: feed_forward
+      - logger.log:
+          level: INFO
+          format: "Serving %d scoops"
+          args: [ id(max_scoops) ]
+
+sensor:
+  - platform: wifi_signal
+    name: "$name signal"
+    update_interval: 60s
+
+button:
+  - platform: restart
+    name: Restart

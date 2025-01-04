@@ -1,24 +1,24 @@
-- alias: "IP Address Change"
-  initial_state: on
-  trigger:
-    - platform: state
-      entity_id: sensor.myip
-  action:
-    - service: shell_command.renew_ip
-      data:
-        dynhost: !secret sdynhost
-        dynuname: !secret sdynuname
-        dynkey: !secret sdynkey
+# - alias: "IP Address Change"
+#   initial_state: on
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.myip
+#   action:
+#     - service: shell_command.renew_ip
+#       data:
+#         dynhost: !secret sdynhost
+#         dynuname: !secret sdynuname
+#         dynkey: !secret sdynkey
 
 
-- alias: "IP Change2"
-  initial_state: on
-  trigger:
-    - platform: template
-      value_template: "{{ states('sensor.myip') != states('sensor.ghouse_iodat_org') }}"
-  action:
-    - service: rest_command.update_ip
-      data:
-        dynhost: !secret sdynhost
-        dynuname: !secret sdynuname
-        dynkey: !secret sdynkey
+# - alias: "IP Change2"
+#   initial_state: on
+#   trigger:
+#     - platform: template
+#       value_template: "{{ states('sensor.myip') != states('sensor.ghouse_iodat_org') }}"
+#   action:
+#     - service: rest_command.update_ip
+#       data:
+#         dynhost: !secret sdynhost
+#         dynuname: !secret sdynuname
+#         dynkey: !secret sdynkey
