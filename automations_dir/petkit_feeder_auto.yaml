@@ -1,0 +1,17 @@
+- alias: "Morning Cat Feed"
+  trigger:
+    - platform: time
+      at: "05:30:00" #
+  condition: []
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.feed_cat
+
+- alias: "Evening Cat Feed"
+  trigger:
+    - platform: time
+      at: "21:00:00" # 9p
+  condition: []
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.feed_cat
