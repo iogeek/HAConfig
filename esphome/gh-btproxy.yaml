@@ -1,6 +1,6 @@
 substitutions:
-  name: patio-btproxy
-  friendly_name: patio-btproxy
+  name: gh-btproxy
+  friendly_name: gh-btproxy
 packages:
   esphome.bluetooth-proxy: github://esphome/bluetooth-proxies/esp32-generic/esp32-generic.yaml@main
 esphome:
