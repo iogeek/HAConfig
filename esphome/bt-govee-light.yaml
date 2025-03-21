@@ -1,0 +1,37 @@
+esphome:
+  name: govee_string_lights
+  platform: ESP32
+  board: esp32dev
+
+bluetooth_proxy:
+
+esp32_ble_tracker:
+  scan_parameters:
+    active: false
+
+binary_sensor:
+  - platform: ble_presence
+    mac_address: XX:XX:XX:XX:XX:XX # Replace with your Govee device's MAC address
+    name: "Govee String Lights Presence"
+    on_press:
+      - lambda: |-
+          if (id(govee_string_lights_switch).state) {
+            id(govee_string_lights_switch).turn_off();
+          } else {
+            id(govee_string_lights_switch).turn_on();
+          }
+
+switch:
+  - platform: template
+    name: "Govee String Lights"
+    id: govee_string_lights_switch
+    turn_on_action:
+      - bluetooth_raw.write:
+          device_mac_address: XX:XX:XX:XX:XX:XX # Replace with your Govee device's MAC address
+          data: "0101" #On command. This may vary depending on the Govee model.
+    turn_off_action:
+      - bluetooth_raw.write:
+          device_mac_address: XX:XX:XX:XX:XX:XX # Replace with your Govee device's MAC address
+          data: "0100" #Off command. This may vary depending on the Govee model.
+    optimistic: true # Important for template switches interacting with BLE
+

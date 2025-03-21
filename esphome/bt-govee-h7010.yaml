@@ -1,0 +1,53 @@
+esphome:
+  name: govee_h7010_string
+  platform: ESP32
+  board: esp32dev
+
+bluetooth_proxy:
+
+esp32_ble_tracker:
+  scan_parameters:
+    active: false
+
+binary_sensor:
+  - platform: ble_presence
+    mac_address: XX:XX:XX:XX:XX:XX # Replace with your H7010 MAC address
+    name: "Govee H7010 Presence"
+    on_press:
+      - lambda: |-
+          if (id(govee_h7010_switch).state) {
+            id(govee_h7010_switch).turn_off();
+          } else {
+            id(govee_h7010_switch).turn_on();
+          }
+
+switch:
+  - platform: template
+    name: "Govee H7010 String"
+    id: govee_h7010_switch
+    turn_on_action:
+      - bluetooth_raw.write:
+          device_mac_address: XX:XX:XX:XX:XX:XX # Replace with your H7010 MAC address
+          data: "0101" # Basic ON command, may need adjustment
+    turn_off_action:
+      - bluetooth_raw.write:
+          device_mac_address: XX:XX:XX:XX:XX:XX # Replace with your H7010 MAC address
+          data: "0100" # Basic OFF command, may need adjustment
+    optimistic: true
+
+light:
+  - platform: template
+    name: "Govee H7010 Light"
+    id: govee_h7010_light
+    turn_on_action:
+      - lambda: |-
+          std::vector<uint8_t> data = {0x33, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}; //Example on command
+          esp_now_send(XX:XX:XX:XX:XX:XX, data); //Replace with your H7010 MAC address
+    turn_off_action:
+      - lambda: |-
+          std::vector<uint8_t> data = {0x33, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}; //Example off command
+          esp_now_send(XX:XX:XX:XX:XX:XX, data); //Replace with your H7010 MAC address
+    lambda: |-
+      return {}; # Placeholder for state reporting (if possible)
+    supports_brightness: false
+    supports_rgb: false
