@@ -1,0 +1,22 @@
+esphome:
+  name: govee_light_controller
+  platform: ESP32
+  board: esp32dev
+
+esp32_ble_tracker:
+
+ble_client:
+  - mac_address: "YOUR_GOVEE_LIGHT_MAC_ADDRESS"
+    id: govee_light
+
+output:
+  - platform: ble_client
+    ble_client_id: govee_light
+    service_uuid: "0000ffe5-0000-1000-8000-00805f9b34fb"
+    characteristic_uuid: "0000ffe9-0000-1000-8000-00805f9b34fb"
+    id: govee_light_output
+
+light:
+  - platform: monochromatic
+    output: govee_light_output
+    name: "Govee Light"
