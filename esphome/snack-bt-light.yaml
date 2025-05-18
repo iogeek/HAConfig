@@ -1,0 +1,129 @@
+substitutions:
+  name: snack-bt-light
+  id: snack_bt_light_switch
+  friendly_name:  snack-bt-light
+  mac: C3:38:30:34:5b:78
+  s_uuid: "00010203-0405-0607-0809-0a0b0c0d1910"
+  #        00010203-0405-0607-0809-0a0b0c0d1910
+  #        0000ffe5-0000-1000-8000-00805f9b34fb
+  c_uuid: "00010203-0405-0607-0809-0a0b0c0d2b11"
+  #        00010203-0405-0607-0809-0a0b0c0d2b11  # UUID_CONTROL_CHARACTERISTIC 
+  #        0000ffe9-0000-1000-8000-00805f9b34fb
+  
+#[08:49:37][D][ble_client.automation:187]: Found characteristic 00010203-0405-0607-0809-0A0B0C0D2B11 on device C3:38:30:34:5B:78
+#[08:49:37][D][ble_client.automation:178]: Write type: ESP_GATT_WRITE_TYPE_RSP
+
+esphome:
+  name: ${name}
+
+ota:
+  #password: "XXX"
+  platform: esphome
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+    
+# bluetooth_proxy:
+
+# esp32_ble_tracker:
+#   scan_parameters:
+#     active: false
+
+api:
+  encryption:
+    key: !secret encryption_key
+
+logger:
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+# esp32_ble_tracker:
+#   on_ble_advertise:
+#     - mac_address:
+#         - ${mac}
+#       then:
+#         - lambda: |-
+#             ESP_LOGD("ble_adv", "New BLE device");
+#             ESP_LOGD("ble_adv", "  address: %s", x.address_str().c_str());
+#             ESP_LOGD("ble_adv", "  name: %s", x.get_name().c_str());
+#             ESP_LOGD("ble_adv", "  Advertised service UUIDs:");
+#             for (auto uuid : x.get_service_uuids()) {
+#                 ESP_LOGD("ble_adv", "    - %s", uuid.to_string().c_str());
+#             }
+#             ESP_LOGD("ble_adv", "  Advertised service data:");
+#             for (auto data : x.get_service_datas()) {
+#                 ESP_LOGD("ble_adv", "    - %s: (length %i)", data.uuid.to_string().c_str(), data.data.size());
+#             }
+#             ESP_LOGD("ble_adv", "  Advertised manufacturer data:");
+#             for (auto data : x.get_manufacturer_datas()) {
+#                 ESP_LOGD("ble_adv", "    - %s: (length %i)", data.uuid.to_string().c_str(), data.data.size());
+#             }
+
+ble_client:
+  - mac_address: ${mac}
+    id: ${id}
+    on_connect:
+      then:
+        - lambda: |-
+            ESP_LOGD("ble_client_lambda", "Connected to BLE device");
+    on_disconnect:
+      then:
+        - lambda: |-
+            ESP_LOGD("ble_client_lambda", "Disconnected from BLE device");
+
+# binary_sensor:
+#   - platform: ble_presence
+#     mac_address: ${mac} # Replace with your Govee device's MAC address
+#     name: "Govee String Lights Presence"
+#     on_press:
+#       - lambda: |-
+#           if (id(${id}).state) {
+#             id(${id}).turn_off();
+#           } else {
+#             id(${id}).turn_on();
+#           }
+
+switch:
+  - platform: template
+    name: "Govee String Lights"
+    turn_on_action:
+      - ble_client.ble_write:
+          id: ${id}
+          service_uuid: ${s_uuid}
+          characteristic_uuid: ${c_uuid}
+          # List of bytes to write.
+          value: [0x33, 0x33, 0x01]  # 0x11
+    turn_off_action:
+      - ble_client.ble_write:
+          id: ${id}
+          service_uuid: ${s_uuid}
+          characteristic_uuid: ${c_uuid}
+          # List of bytes to write.
+          value: [0x33, 0x33, 0x00]
+#     optimistic: true # Important for template switches interacting with BLE
+
+# Define a switch to control the BLE device
+# switch:
+#   - platform: ble_write
+#     name: ${name}
+#     #ble_client_id: ${id}
+#     id: ${id}
+#     service_uuid: ${s_uuid}  # Replace with your service UUID
+#     characteristic_uuid: ${c_uuid}  # Replace with your characteristic UUID
+#     value_on: [0x33, 0x33, 0x11]  # Value to send when turning ON
+#     value_off: [0x33, 0x33, 0x00]  # Value to send when turning OFF
+
+
+    # turn_on_action:
+    #   - bluetooth_raw.write:
+    #       device_mac_address: ${mac} # Replace with your Govee device's MAC address
+    #       data: "0101" #On command. This may vary depending on the Govee model.
+    # turn_off_action:
+    #   - bluetooth_raw.write:
+    #       device_mac_address: ${mac} # Replace with your Govee device's MAC address
+    #       data: "0100" #Off command. This may vary depending on the Govee model.
+

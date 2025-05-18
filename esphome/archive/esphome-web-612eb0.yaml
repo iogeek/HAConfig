@@ -1,0 +1,25 @@
+ota:
+  #password: "XXX"
+  platform: esphome
+
+esphome:
+  name: bt-light
+  friendly_name: bt-light
+  name_add_mac_suffix: false
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+
+# Enable logging
+logger:
+
+api:
+  encryption:
+    key: "J2FPyNpJMRvy8RJTNdvseaELa6BGtpzobd4lKV6Zvzo="
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password

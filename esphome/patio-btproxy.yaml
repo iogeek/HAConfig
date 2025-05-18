@@ -3,6 +3,11 @@ substitutions:
   friendly_name: patio-btproxy
 packages:
   esphome.bluetooth-proxy: github://esphome/bluetooth-proxies/esp32-generic/esp32-generic.yaml@main
+
+ota:
+  #password: "XXX"
+  platform: esphome
+
 esphome:
   name: ${name}
   name_add_mac_suffix: false

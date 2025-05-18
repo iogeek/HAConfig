@@ -2,17 +2,20 @@ binary_sensor:
   - platform: trend
     sensors:
       start_showering:
-        entity_id: sensor.tp357s_d8de_humidity  # samples every 10s
-        sample_duration: 900  # in seconds
-        max_samples: 90
-        min_gradient: 0.33 # (units change per second) / 
+        entity_id: sensor.tp357s_d8de_humidity  # samples every 10s  
+        sample_duration: 120  # in seconds
+        max_samples: 12
+        min_gradient: 0.33 # (units change per second) 
+
+        # gradient = (current_value - previous_value) / time_difference
+        #  (rise / run)
     
   - platform: trend
     sensors:
       stop_showering:
         entity_id: sensor.tp357s_d8de_humidity  # samples every 10s
-        sample_duration: 900 # in seconds
-        max_samples: 90
+        sample_duration: 120 # in seconds
+        max_samples: 12
         min_gradient: -0.05
 
 
@@ -22,3 +25,7 @@ sensor:
     name: Master Bathroom Humidity Change
     unit: '%'
     time_window: "00:30:00"
+
+input_boolean: 
+  mb_shower:
+    name: "Master Shower State"

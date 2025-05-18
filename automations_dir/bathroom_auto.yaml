@@ -1,0 +1,23 @@
+# - alias: "Hourly Trigger"
+#   triggers:
+#     - trigger: time_pattern
+#       # Matches every hour at 5 minutes past whole
+#       minutes: 5
+#   action:
+#     - service: python_script.timed_task
+
+# - id: 'bathroom_humidity'
+#   alias: Humidity | Bathroom
+#   trigger:
+#     platform: state
+#     entity_id: sensor.master_bath_humidity
+#   condition:
+#   - condition: template
+#     # humidity increased by 20% since last reading
+#     value_template: "{{ trigger.to_state.state | float > (trigger.from_state.state | float) * 1.2 }}"
+#   action:
+#   - parallel:
+#     - service: light.turn_on
+#       entity_id: light.master_bath
+#     - service: input_boolean.turn_on
+#       entity_id: input_boolean.shower

@@ -28,3 +28,13 @@
     domain: light
     brightness_pct: 100
   mode: single
+- id: '1747367874759'
+  alias: Bathroom Humidity Exhaust Fan
+  description: ''
+  use_blueprint:
+    path: Blackshome/bathroom-humidity-exhaust-fan.yaml
+    input:
+      fan_switch:
+        device_id: 0b96ae17ef2ab2d15baa07bc0b2231fe
+      trigger: sensor.master_bathroom_humidity_change
+      bathroom_humidity_sensor: sensor.tp357s_d8de_humidity

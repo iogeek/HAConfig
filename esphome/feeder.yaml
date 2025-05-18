@@ -14,7 +14,7 @@ substitutions:
   device_description: "Petkit Solo"
   kdefault_scoops: "1" #4  #1 scoop = ~10g
   kfeed_amt_am: "1"
-  kfeed_amt_pm: "2"
+  kfeed_amt_pm: "1"
   startup_sound: "scale_up:d=32,o=5,b=100:c,c#,d#,e,f#,g#,a#,b"
   error_sound: "siren:d=8,o=5,b=100:d,e,d,e,d,e,d,e"
 
@@ -41,7 +41,7 @@ time:
     id: homeassistant_time
     on_time:
       - seconds: 0      #530a
-        minutes: 30
+        minutes: 45
         hours: 5
         then:
           - lambda: |-
@@ -57,7 +57,7 @@ time:
                 id(scoops_count) = 0;
                 id(food_sensor_count) = 0;
                 id(max_scoops) = id(gfeed_amt_pm);
-          - switch.turn_on: feed_forward
+          #- switch.turn_on: feed_forward   #disable this to disable the motor
 
       # - name: "Feed Cat AM"
   #   id: feed_cat
